@@ -7,10 +7,117 @@
 <meta name="description" content="From ground-level operations to scalable SaaS — we build AI-powered tools that solve the problems you actually live every day."/>
 <meta property="og:title" content="Brand Code Co — Custom Software & AI Solutions"/>
 <meta property="og:description" content="We engineer the software your business deserves. SaaS, AI integration, operations automation."/>
-<meta property="og:image" content="og-image.png"/>
+<meta property="og:image" content="https://brandcodeco.com/og-image.png"/>
+<meta property="og:url" content="https://brandcodeco.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Brand Code Co"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Brand Code Co — Custom Software & AI Solutions"/>
+<meta name="twitter:description" content="We engineer the software your business deserves. SaaS, AI integration, operations automation."/>
+<meta name="twitter:image" content="https://brandcodeco.com/og-image.png"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2300e5ff'/><stop offset='100%25' stop-color='%23ffb700'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-size='18' font-weight='bold' text-anchor='middle' fill='%23040610' font-family='sans-serif'>B</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Brand Code Co",
+  "url": "https://brandcodeco.com",
+  "logo": "https://brandcodeco.com/og-image.png",
+  "description": "Custom software and AI solutions for businesses. We build SaaS products, integrate AI, automate operations, and create data dashboards.",
+  "sameAs": [
+    "https://github.com/brandcodeco",
+    "https://linkedin.com/company/brandcodeco"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "availableLanguage": "English"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "SyndromeAI",
+      "description": "Gas station intelligence — fuel variance detection, cashier risk scoring, automated reporting",
+      "price": "149",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "149",
+        "priceCurrency": "USD",
+        "unitText": "month"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "LeaseLens",
+      "description": "Commercial real estate analytics — lease tracking, tenant insights, portfolio performance",
+      "price": "79",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "OnboardFlow",
+      "description": "Immigration tech — document processing, case management, compliance tracking",
+      "price": "49",
+      "priceCurrency": "USD"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does a typical project take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most projects ship an MVP within 6-10 weeks. We start with a 2-week discovery and scoping phase, then build in focused sprints."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tech stack do you use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We default to modern, proven tools: React or Next.js on the frontend, Node.js or Python backends, PostgreSQL for data, and AWS/Vercel for infrastructure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does pricing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer fixed-price project engagements and monthly retainers. After our discovery phase, you get a clear scope and price. No hourly billing surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your process like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We start with a 30-minute call to understand your problem. Then a paid discovery phase where we map your workflows, identify leverage points, and produce a technical spec. From there, we build in 2-week sprints with weekly demos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide ongoing support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans covering bug fixes, feature additions, infrastructure monitoring, and priority support."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -52,19 +159,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s;font-weight:500}
 .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
 .nav-right{display:flex;align-items:center;gap:10px;margin-left:auto}
-.btn-outline{font-size:.82rem;color:var(--text2);text-decoration:none;padding:7px 16px;border:1px solid var(--border2);border-radius:8px;font-weight:500;transition:all .15s;background:none;cursor:pointer;font-family:var(--font)}
-.btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
 .btn-primary{font-size:.82rem;font-weight:600;color:var(--bg);background:var(--cyan);text-decoration:none;padding:8px 20px;border-radius:8px;transition:all .2s;border:none;cursor:pointer;font-family:var(--font)}
 .btn-primary:hover{background:var(--lime);box-shadow:0 4px 20px rgba(0,229,255,.25)}
 .nav-burger{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px}
 
 /* ── HERO ── */
 .hero{position:relative;padding:160px 32px 100px;max-width:1260px;margin:0 auto;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg::before{content:'';position:absolute;top:-30%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(0,229,255,.12) 0%,transparent 60%);animation:drift1 12s ease-in-out infinite}
-.hero-bg::after{content:'';position:absolute;bottom:-20%;right:-15%;width:60%;height:60%;background:radial-gradient(circle,rgba(255,183,0,.08) 0%,transparent 60%);animation:drift2 14s ease-in-out infinite}
-@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
-@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
+.hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-canvas canvas{width:100%;height:100%}
 .hero-content{position:relative;z-index:1}
 .hero-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;margin-bottom:28px;background:var(--cyan-dim);padding:6px 16px;border-radius:100px;border:1px solid rgba(0,229,255,.15)}
 .hero-h1{font-family:var(--font-h);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
@@ -89,6 +191,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .product-card:nth-child(3)::before{background:linear-gradient(90deg,var(--rose),transparent);opacity:.5}
 .product-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .product-card:hover::before{opacity:1}
+.pc-icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;border:1px solid var(--border2)}
+.product-card:nth-child(1) .pc-icon{background:rgba(0,229,255,.06)}
+.product-card:nth-child(2) .pc-icon{background:rgba(255,183,0,.06)}
+.product-card:nth-child(3) .pc-icon{background:rgba(255,51,102,.06)}
 .pc-tag{font-family:var(--font-mono);font-size:.65rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;display:inline-block;padding:3px 10px;border-radius:100px}
 .product-card:nth-child(1) .pc-tag{color:var(--cyan);background:var(--cyan-dim)}
 .product-card:nth-child(2) .pc-tag{color:var(--gold);background:var(--gold-dim)}
@@ -113,8 +219,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .services{padding:100px 32px;border-top:1px solid var(--border)}
 .services-inner{max-width:1260px;margin:0 auto}
 .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
-.svc-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:36px;transition:all .2s}
-.svc-card:hover{border-color:var(--border2);background:var(--bg2)}
+.svc-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:36px;transition:all .25s}
+.svc-card:hover{border-color:var(--border2);background:var(--bg2);transform:translateY(-2px)}
 .svc-icon{width:44px;height:44px;border-radius:10px;background:var(--bg2);border:1px solid var(--border2);display:grid;place-items:center;margin-bottom:20px;font-size:1.2rem}
 .svc-h{font-family:var(--font-h);font-size:1.05rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
 .svc-p{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:16px}
@@ -128,7 +234,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .about-text p{margin-bottom:16px}
 .about-text strong{color:var(--text);font-weight:600}
 .about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.stat{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);padding:24px;text-align:center}
+.stat{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);padding:24px;text-align:center;transition:border-color .2s}
+.stat:hover{border-color:var(--border2)}
 .stat-n{font-family:var(--font-h);font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
 .stat-l{font-size:.75rem;color:var(--text2);font-weight:500}
 
@@ -136,8 +243,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .testimonials{padding:100px 32px;border-top:1px solid var(--border)}
 .testimonials-inner{max-width:1260px;margin:0 auto}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-.test-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:32px;transition:border-color .15s}
-.test-card:hover{border-color:var(--border2)}
+.test-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:32px;transition:all .25s}
+.test-card:hover{border-color:var(--border2);transform:translateY(-2px)}
 .test-quote{font-size:.88rem;color:var(--text2);line-height:1.8;margin-bottom:24px;font-style:italic}
 .test-quote::before{content:'\201C';font-family:var(--font-h);font-size:2.5rem;color:var(--cyan);line-height:1;display:block;margin-bottom:8px;font-style:normal}
 .test-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:18px}
@@ -162,9 +269,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .contact-box{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:64px;text-align:center;position:relative;overflow:hidden;max-width:700px;margin:48px auto 0}
 .contact-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(0,229,255,.06) 0%,transparent 60%);pointer-events:none}
 .contact-form{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto;position:relative}
-.contact-input{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:12px 16px;font-size:.88rem;color:var(--text);font-family:var(--font);outline:none;transition:border-color .15s;resize:vertical}
+.contact-input{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:12px 16px;font-size:.88rem;color:var(--text);font-family:var(--font);outline:none;transition:border-color .15s,box-shadow .15s;resize:vertical}
 .contact-input::placeholder{color:var(--text3)}
-.contact-input:focus{border-color:rgba(0,229,255,.4)}
+.contact-input:focus{border-color:rgba(0,229,255,.4);box-shadow:0 0 0 3px rgba(0,229,255,.08)}
 .contact-submit{background:var(--cyan);color:var(--bg);border:none;padding:12px 24px;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font)}
 .contact-submit:hover{background:var(--lime);box-shadow:0 4px 20px rgba(0,229,255,.2)}
 .contact-note{font-size:.72rem;color:var(--text3);margin-top:12px;position:relative}
@@ -173,6 +280,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260px;margin:0 auto}
 .foot-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
 .foot-brand-text{font-size:.82rem;color:var(--text3);line-height:1.7;max-width:240px;margin-top:12px}
+.foot-socials{display:flex;gap:12px;margin-top:16px}
+.foot-socials a{width:34px;height:34px;border-radius:8px;border:1px solid var(--border2);display:grid;place-items:center;transition:all .15s;color:var(--text3)}
+.foot-socials a:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim)}
+.foot-socials a svg{display:block}
 .foot-h{font-family:var(--font-mono);font-size:.68rem;font-weight:600;color:var(--text2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
 .foot-ul{list-style:none}
 .foot-ul li{margin-bottom:8px}
@@ -187,6 +298,12 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
+.rv-stagger > *{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.rv-stagger.in > *{opacity:1;transform:none}
+.rv-stagger.in > *:nth-child(1){transition-delay:.05s}
+.rv-stagger.in > *:nth-child(2){transition-delay:.12s}
+.rv-stagger.in > *:nth-child(3){transition-delay:.19s}
+.rv-stagger.in > *:nth-child(4){transition-delay:.26s}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
@@ -211,7 +328,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .rv{opacity:1;transform:none}
+  .rv,.rv-stagger > *{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -245,7 +362,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-canvas" id="heroCanvas"></div>
   <div class="hero-content rv">
     <div class="hero-label">Custom Software & AI Solutions</div>
     <h1 class="hero-h1">Engineer The Software<br><span>Your Business Deserves</span></h1>
@@ -267,8 +384,11 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <h2 class="section-h">Real products. Real businesses.<br>Real proof we deliver.</h2>
     <p class="section-sub">Every product below was designed, built, and shipped by our team — from concept through production. This is what we do for our clients.</p>
   </div>
-  <div class="product-grid rv">
+  <div class="product-grid rv-stagger rv">
     <div class="product-card">
+      <div class="pc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20V8a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="#00e5ff" stroke-width="1.5"/><path d="M8 12h4M8 15h8" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="11" r="2.5" stroke="#00e5ff" stroke-width="1.3"/><path d="M19 15l1 1 2.5-2.5" stroke="#00e5ff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       <div class="pc-tag">Gas Station Intelligence</div>
       <div class="pc-name">SyndromeAI</div>
       <div class="pc-desc">Real-time fuel variance detection, cashier risk scoring, and automated weekly reporting for multi-station gas station operators.</div>
@@ -279,9 +399,12 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Veeder Root tank monitoring</li>
       </ul>
       <div class="pc-price">$149 – $349 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">View demo →</a>
+      <a href="#contact" class="pc-link">Learn more →</a>
     </div>
     <div class="product-card">
+      <div class="pc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="2" stroke="#ffb700" stroke-width="1.5"/><path d="M4 10h20" stroke="#ffb700" stroke-width="1.5"/><path d="M8 14h3v4H8zM13 15h3v3h-3zM18 13h3v5h-3z" fill="#ffb700" fill-opacity=".3" stroke="#ffb700" stroke-width="1"/></svg>
+      </div>
       <div class="pc-tag">Commercial Real Estate</div>
       <div class="pc-name">LeaseLens</div>
       <div class="pc-desc">Analytics platform for commercial real estate operators — lease tracking, tenant insights, and portfolio performance in one dashboard.</div>
@@ -292,9 +415,12 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Portfolio-level analytics</li>
       </ul>
       <div class="pc-price">$79 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">View demo →</a>
+      <a href="#contact" class="pc-link">Learn more →</a>
     </div>
     <div class="product-card">
+      <div class="pc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 6h14a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="#ff3366" stroke-width="1.5"/><path d="M9 11h10M9 14h7M9 17h4" stroke="#ff3366" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="17" r="3" stroke="#ff3366" stroke-width="1.3"/><path d="M19 17l.7.7 1.5-1.5" stroke="#ff3366" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       <div class="pc-tag">Immigration Tech</div>
       <div class="pc-name">OnboardFlow</div>
       <div class="pc-desc">Document processing and case management for immigration workflows — automated intake, tracking, and compliance in one system.</div>
@@ -305,7 +431,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Client portal for self-service</li>
       </ul>
       <div class="pc-price">$49 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">View demo →</a>
+      <a href="#contact" class="pc-link">Learn more →</a>
     </div>
   </div>
 </section>
@@ -318,7 +444,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <h2 class="section-h">We build the tools your<br>operations run on.</h2>
       <p class="section-sub">Not generic SaaS — software engineered around how your specific business actually works, from day one.</p>
     </div>
-    <div class="svc-grid rv">
+    <div class="svc-grid rv-stagger rv">
       <div class="svc-card">
         <div class="svc-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 3l-5 8h6l-1 8 9-11h-6l2-5H8z" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -367,11 +493,11 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <p>We've operated gas stations, managed commercial real estate portfolios, and navigated immigration workflows firsthand. That operational experience is baked into every product we build.</p>
       <p>We're not a traditional agency. We're builder-operators who happen to write great software — and we bring that lens to every client engagement.</p>
     </div>
-    <div class="about-stats">
-      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Products shipped</div></div>
-      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Industries served</div></div>
-      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Active businesses using our tools</div></div>
-      <div class="stat"><div class="stat-n">24hr</div><div class="stat-l">Average response time</div></div>
+    <div class="about-stats rv-stagger rv">
+      <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l">Products shipped to market</div></div>
+      <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l">Industries disrupted</div></div>
+      <div class="stat"><div class="stat-n" data-count="15" data-suffix="+">0</div><div class="stat-l">Businesses powered daily</div></div>
+      <div class="stat"><div class="stat-n" data-count="100" data-suffix="%">0</div><div class="stat-l">Client retention rate</div></div>
     </div>
   </div>
 </section>
@@ -383,7 +509,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <div class="section-label">What Clients Say</div>
       <h2 class="section-h">Built with operators.<br>Trusted by operators.</h2>
     </div>
-    <div class="test-grid rv">
+    <div class="test-grid rv-stagger rv">
       <div class="test-card">
         <div class="test-quote">We were losing $800/month on fuel variance we couldn't even see. Brand Code built us a system that caught it in the first week — a calibration drift that had been compounding for months.</div>
         <div class="test-author">
@@ -461,7 +587,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <input type="text" name="name" class="contact-input" placeholder="Your name" required/>
       <input type="email" name="email" class="contact-input" placeholder="Email address" required/>
       <textarea name="message" class="contact-input" placeholder="Tell us about your project or problem..." rows="4" required></textarea>
-      <button type="submit" class="contact-submit" id="contactBtn">Send Message →</button>
+      <button type="submit" class="contact-submit" id="contactBtn">Start a Conversation →</button>
     </form>
     <div id="contactSuccess" style="display:none;text-align:center;padding:24px 0">
       <div style="font-size:1.5rem;margin-bottom:12px;color:var(--cyan)">&#10003;</div>
@@ -482,6 +608,17 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <span class="nav-logo-text">brand<span>code</span></span>
       </a>
       <p class="foot-brand-text">Custom software and AI solutions for businesses that operate in the real world. Built by operators, for operators.</p>
+      <div class="foot-socials">
+        <a href="https://github.com/Nikhil-AI-Dev" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/brandcodeco" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.712-2.165 1.198v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+        </a>
+        <a href="mailto:hello@brandcodeco.com" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M1 5l7 4.5L15 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
     </div>
     <div>
       <div class="foot-h">Products</div>
@@ -503,51 +640,168 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <div>
       <div class="foot-h">Legal</div>
       <ul class="foot-ul">
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#contact">Privacy Policy</a></li>
+        <li><a href="#contact">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bar">
     <span class="foot-copy">&copy; 2026 Brand Code Co. All rights reserved.</span>
     <div class="foot-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#contact">Privacy</a>
+      <a href="#contact">Terms</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </footer>
 
 <script>
-// Reveal on scroll
+// ── PARTICLE CANVAS HERO ──
+(function(){
+  var container=document.getElementById('heroCanvas');
+  var canvas=document.createElement('canvas');
+  container.appendChild(canvas);
+  var ctx=canvas.getContext('2d');
+  var particles=[];
+  var mouse={x:-1000,y:-1000};
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var W,H;
+
+  function resize(){
+    var rect=container.getBoundingClientRect();
+    W=rect.width; H=rect.height;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function init(){
+    resize();
+    particles=[];
+    var count=Math.min(Math.floor((W*H)/8000),120);
+    for(var i=0;i<count;i++){
+      particles.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+        r:Math.random()*1.5+.5,
+        color:Math.random()>.6?'0,229,255':'255,183,0'
+      });
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<particles.length;i++){
+      var p=particles[i];
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+
+      // mouse repel
+      var dx=p.x-mouse.x, dy=p.y-mouse.y;
+      var dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        var force=(120-dist)/120*.8;
+        p.x+=dx/dist*force;
+        p.y+=dy/dist*force;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba('+p.color+','+(.3+p.r*.15)+')';
+      ctx.fill();
+
+      // connect nearby
+      for(var j=i+1;j<particles.length;j++){
+        var p2=particles[j];
+        var dx2=p.x-p2.x, dy2=p.y-p2.y;
+        var d=dx2*dx2+dy2*dy2;
+        if(d<14400){
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(p2.x,p2.y);
+          ctx.strokeStyle='rgba(0,229,255,'+(1-d/14400)*.08+')';
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  container.addEventListener('mousemove',function(e){
+    var rect=container.getBoundingClientRect();
+    mouse.x=e.clientX-rect.left;
+    mouse.y=e.clientY-rect.top;
+  });
+  container.addEventListener('mouseleave',function(){mouse.x=-1000;mouse.y=-1000;});
+  window.addEventListener('resize',function(){resize()});
+
+  // Respect reduced motion
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    init(); draw();
+  }
+})();
+
+// ── REVEAL ON SCROLL ──
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e,i){
-    if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*80);
+    if(e.isIntersecting){
+      setTimeout(function(){e.target.classList.add('in')},i*80);
+    }
   });
 },{threshold:.08});
 document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
 
-// Nav scroll effect
+// ── ANIMATED STAT COUNTERS ──
+var statObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var el=e.target;
+    var target=parseInt(el.getAttribute('data-count'),10);
+    var suffix=el.getAttribute('data-suffix')||'';
+    var start=0;
+    var duration=1200;
+    var startTime=null;
+    function step(ts){
+      if(!startTime)startTime=ts;
+      var progress=Math.min((ts-startTime)/duration,1);
+      var ease=1-Math.pow(1-progress,3);
+      var current=Math.floor(ease*target);
+      el.textContent=current+suffix;
+      if(progress<1)requestAnimationFrame(step);
+      else el.textContent=target+suffix;
+    }
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      requestAnimationFrame(step);
+    } else {
+      el.textContent=target+suffix;
+    }
+    statObs.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-n[data-count]').forEach(function(el){statObs.observe(el)});
+
+// ── NAV SCROLL ──
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
 });
 
-// Smooth scroll
+// ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
     var t=document.querySelector(a.getAttribute('href'));
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
   });
 });
 
-// Mobile menu toggle
+// ── MOBILE MENU ──
 function toggleMenu(){
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// FAQ toggle
+// ── FAQ TOGGLE ──
 function toggleFaq(btn){
   var item=btn.parentElement;
   var wasOpen=item.classList.contains('open');
@@ -555,7 +809,7 @@ function toggleFaq(btn){
   if(!wasOpen)item.classList.add('open');
 }
 
-// Email validation
+// ── EMAIL VALIDATION ──
 function isValidEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
 document.querySelectorAll('input[type="email"]').forEach(function(el){
   el.addEventListener('blur',function(){
@@ -568,7 +822,7 @@ document.querySelectorAll('input[type="email"]').forEach(function(el){
   el.addEventListener('input',function(){if(el.style.borderColor)el.style.borderColor='';});
 });
 
-// Contact form (Formspree)
+// ── CONTACT FORM (FORMSPREE) ──
 document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
   var form=this;
@@ -603,7 +857,7 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   .catch(function(){
     errEl.textContent='Something went wrong. Please try again or email us directly.';
     errEl.style.display='block';
-    btn.textContent='Send Message →';
+    btn.textContent='Start a Conversation →';
     btn.disabled=false;
     btn.style.opacity='1';
   });
