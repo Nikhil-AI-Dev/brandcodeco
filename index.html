@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SyndromeAI — Gas Station Intelligence</title>
+<meta name="description" content="Real-time fuel variance, cashier risk scoring, and automated weekly reporting across every gas station you operate."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090b;
+  --bg1:#0f1011;
+  --bg2:#18191b;
+  --bg3:#1f2022;
+  --border:#27282b;
+  --border2:#2f3032;
+  --text:#fafafa;
+  --text2:#a1a1aa;
+  --text3:#71717a;
+  --lime:#bef264;
+  --lime2:#d9f99d;
+  --lime-dim:rgba(190,242,100,.12);
+  --lime-glow:rgba(190,242,100,.06);
+  --green:#4ade80;
+  --amber:#fbbf24;
+  --red:#f87171;
+  --blue:#60a5fa;
+  --r:8px;
+  --r2:12px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;padding:0 24px;border-bottom:1px solid var(--border);background:rgba(9,9,11,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:32px}
+.nav-logo-icon{width:28px;height:28px;background:var(--lime);border-radius:7px;display:grid;place-items:center;flex-shrink:0}
+.nav-logo-icon svg{display:block}
+.nav-logo-text{font-size:.9rem;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;flex:1}
+.nav-links a{font-size:.82rem;color:var(--text3);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .15s;font-weight:500}
+.nav-links a:hover{color:var(--text);background:var(--bg2)}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-ghost{font-size:.82rem;color:var(--text2);text-decoration:none;padding:6px 14px;border:1px solid var(--border2);border-radius:7px;font-weight:500;transition:all .15s}
+.btn-ghost:hover{border-color:#3f4043;color:var(--text)}
+.btn-lime{font-size:.82rem;font-weight:600;color:#0a0a0a;background:var(--lime);text-decoration:none;padding:6px 16px;border-radius:7px;transition:all .15s}
+.btn-lime:hover{background:var(--lime2)}
+
+/* ── HERO ── */
+.hero{padding:120px 24px 0;max-width:1160px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border2);border-radius:100px;padding:5px 14px 5px 8px;margin-bottom:28px;font-size:.75rem;color:var(--text2)}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.4)}50%{box-shadow:0 0 0 5px rgba(74,222,128,0)}}
+.hero-badge-tag{background:var(--lime);color:#0a0a0a;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:100px;letter-spacing:.01em}
+.hero-h1{font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:700;letter-spacing:-.045em;line-height:1.05;color:var(--text);margin-bottom:20px}
+.hero-h1 span{color:var(--lime)}
+.hero-sub{font-size:1.08rem;color:var(--text2);line-height:1.7;max-width:520px;margin:0 auto 36px;font-weight:400}
+.hero-btns{display:flex;justify-content:center;gap:10px;margin-bottom:16px}
+.hero-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0a0a0a;font-size:.88rem;font-weight:600;padding:11px 22px;border-radius:8px;text-decoration:none;transition:all .2s}
+.hero-btn-primary:hover{background:var(--lime2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(190,242,100,.2)}
+.hero-btn-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--text2);font-size:.88rem;font-weight:500;padding:11px 20px;border:1px solid var(--border2);border-radius:8px;text-decoration:none;transition:all .15s}
+.hero-btn-secondary:hover{border-color:#3f4043;color:var(--text)}
+.hero-note{font-size:.75rem;color:var(--text3)}
+
+/* ── DASHBOARD MOCKUP ── */
+.mockup-wrap{margin-top:56px;position:relative;padding:0 0 60px}
+.mockup-glow{position:absolute;top:40px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(190,242,100,.07) 0%,transparent 65%);pointer-events:none}
+.mockup{background:var(--bg1);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.03),0 32px 64px rgba(0,0,0,.6),0 0 0 1px rgba(190,242,100,.04);position:relative}
+.mockup::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.02) 0%,transparent 40%);pointer-events:none;z-index:1}
+
+/* browser chrome */
+.mock-bar{height:42px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:12px}
+.mock-dots{display:flex;gap:6px}
+.mock-dot{width:11px;height:11px;border-radius:50%}
+.mock-url{flex:1;background:var(--bg3);border-radius:5px;height:24px;display:flex;align-items:center;justify-content:center;max-width:280px;margin:0 auto}
+.mock-url span{font-size:.65rem;color:var(--text3);letter-spacing:.01em}
+.mock-tabs{display:flex;gap:2px;padding:0 4px;align-items:center;margin-left:auto}
+.mock-tab{font-size:.62rem;color:var(--text3);padding:3px 10px;border-radius:4px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.mock-tab.active{background:rgba(190,242,100,.1);color:var(--lime)}
+
+/* app layout */
+.mock-body{display:grid;grid-template-columns:200px 1fr;min-height:480px}
+
+/* sidebar */
+.mock-sidebar{background:var(--bg1);border-right:1px solid var(--border);padding:16px 8px;display:flex;flex-direction:column;gap:2px}
+.mock-sb-station{padding:8px 12px;margin-bottom:8px}
+.mock-sb-station-name{font-size:.72rem;font-weight:600;color:var(--text);letter-spacing:-.01em}
+.mock-sb-station-sub{font-size:.62rem;color:var(--text3);display:flex;align-items:center;gap:4px;margin-top:2px}
+.mock-sb-online{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.mock-sb-item{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:6px;font-size:.72rem;color:var(--text3);cursor:pointer;transition:all .12s}
+.mock-sb-item:hover{background:var(--bg2);color:var(--text2)}
+.mock-sb-item.active{background:var(--bg2);color:var(--text)}
+.mock-sb-item .icon{width:15px;height:15px;opacity:.7;flex-shrink:0}
+.mock-sb-divider{height:1px;background:var(--border);margin:8px 12px}
+.mock-sb-alert-badge{margin-left:auto;background:rgba(248,113,113,.15);color:var(--red);font-size:.55rem;font-weight:600;padding:1px 6px;border-radius:100px;border:1px solid rgba(248,113,113,.25)}
+.mock-sb-badge{margin-left:auto;background:var(--lime-dim);color:var(--lime);font-size:.55rem;font-weight:600;padding:1px 6px;border-radius:100px}
+
+/* main content */
+.mock-main{background:var(--bg);padding:20px;display:flex;flex-direction:column;gap:14px}
+
+/* page header */
+.mock-page-header{display:flex;align-items:center;justify-content:space-between}
+.mock-page-title{font-size:.9rem;font-weight:600;color:var(--text);letter-spacing:-.02em}
+.mock-page-date{font-size:.7rem;color:var(--text3);background:var(--bg2);border:1px solid var(--border);padding:4px 10px;border-radius:6px}
+
+/* KPI row */
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mk{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px;position:relative;overflow:hidden}
+.mk::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.mk.lime::after{background:linear-gradient(90deg,var(--lime),transparent)}
+.mk.grn::after{background:linear-gradient(90deg,var(--green),transparent)}
+.mk.amb::after{background:linear-gradient(90deg,var(--amber),transparent)}
+.mk.red::after{background:linear-gradient(90deg,var(--red),transparent)}
+.mk-label{font-size:.62rem;color:var(--text3);font-weight:500;margin-bottom:6px;letter-spacing:.02em;text-transform:uppercase}
+.mk-val{font-size:1.3rem;font-weight:700;letter-spacing:-.03em;margin-bottom:3px;line-height:1}
+.mk-val.lime{color:var(--lime)}.mk-val.grn{color:var(--green)}.mk-val.amb{color:var(--amber)}.mk-val.red{color:var(--red)}
+.mk-delta{font-size:.65rem;display:flex;align-items:center;gap:3px}
+.mk-delta.up{color:var(--green)}.mk-delta.flat{color:var(--text3)}.mk-delta.down{color:var(--red)}
+
+/* charts row */
+.mock-charts{display:grid;grid-template-columns:1fr 200px;gap:10px}
+.mc-box{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px}
+.mc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.mc-title{font-size:.72rem;font-weight:600;color:var(--text2)}
+.mc-badge{font-size:.6rem;color:var(--lime);background:var(--lime-dim);padding:2px 8px;border-radius:100px;font-weight:500}
+.mc-bars{display:flex;align-items:flex-end;gap:4px;height:72px}
+.mcb{flex:1;border-radius:3px 3px 0 0;background:rgba(190,242,100,.08);height:0;transition:height 1.4s cubic-bezier(.16,1,.3,1);position:relative}
+.mcb.peak{background:rgba(190,242,100,.25)}
+.mcb.low{background:rgba(248,113,113,.15)}
+.mcb-top{position:absolute;top:0;left:0;right:0;height:2px;border-radius:3px 3px 0 0;background:rgba(190,242,100,.4)}
+.mcb.peak .mcb-top{background:var(--lime)}
+.mcb.low .mcb-top{background:var(--red)}
+
+/* MOP donut area */
+.mc-mop{display:flex;flex-direction:column;gap:6px}
+.mop-row{display:flex;align-items:center;gap-8px;justify-content:space-between}
+.mop-label{font-size:.62rem;color:var(--text3);font-weight:500;flex:1}
+.mop-bar-wrap{flex:1;height:3px;background:var(--bg3);border-radius:2px;overflow:hidden;margin:0 8px}
+.mop-fill{height:100%;border-radius:2px;width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.mop-val{font-size:.62rem;color:var(--text2);font-weight:600;width:28px;text-align:right}
+
+/* alerts */
+.mock-alerts{display:flex;flex-direction:column;gap:6px}
+.mock-alerts-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.mock-alerts-title{font-size:.72rem;font-weight:600;color:var(--text2)}
+.mock-alerts-count{font-size:.65rem;color:var(--text3)}
+.mal{display:flex;align-items:flex-start;gap:10px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.mal-icon{width:18px;height:18px;border-radius:4px;display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.mal-icon.hi{background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.2)}
+.mal-icon.md{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2)}
+.mal-icon.ok{background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.15)}
+.mal-dot{width:6px;height:6px;border-radius:50%}
+.mal-dot.hi{background:var(--red)}.mal-dot.md{background:var(--amber)}.mal-dot.ok{background:var(--green)}
+.mal-body{flex:1}
+.mal-title{font-size:.7rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.mal-title.hi{color:var(--red)}.mal-title.md{color:var(--amber)}.mal-title.ok{color:var(--green)}
+.mal-desc{font-size:.65rem;color:var(--text3);line-height:1.5}
+.mal-time{font-size:.6rem;color:var(--text3);margin-top:4px}
+
+/* ── LOGOS / SOCIAL PROOF ── */
+.proof{padding:48px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.proof-inner{max-width:900px;margin:0 auto;text-align:center}
+.proof-label{font-size:.75rem;color:var(--text3);font-weight:500;margin-bottom:28px;letter-spacing:.02em}
+.proof-stats{display:flex;justify-content:center;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:600px;margin:0 auto}
+.ps-cell{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border)}
+.ps-cell:last-child{border:none}
+.ps-n{font-size:1.5rem;font-weight:700;color:var(--lime);letter-spacing:-.04em;margin-bottom:4px}
+.ps-l{font-size:.72rem;color:var(--text3);font-weight:500}
+
+/* ── FEATURES ── */
+.features{padding:80px 24px;max-width:1060px;margin:0 auto}
+.section-label{font-size:.75rem;font-weight:600;color:var(--lime);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.section-h{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:14px}
+.section-sub{font-size:.95rem;color:var(--text2);line-height:1.7;max-width:460px;margin-bottom:52px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.feat{background:var(--bg);padding:28px;transition:background .15s;position:relative}
+.feat:hover{background:var(--bg1)}
+.feat-icon{width:36px;height:36px;border-radius:8px;background:var(--bg2);border:1px solid var(--border2);display:grid;place-items:center;margin-bottom:16px;font-size:1rem}
+.feat-h{font-size:.9rem;font-weight:600;color:var(--text);letter-spacing:-.01em;margin-bottom:7px}
+.feat-p{font-size:.8rem;color:var(--text2);line-height:1.65}
+.feat-tag{display:inline-block;margin-top:12px;font-size:.65rem;color:var(--lime);background:var(--lime-dim);padding:2px 8px;border-radius:100px;font-weight:500}
+
+/* ── HOW IT WORKS ── */
+.how{padding:80px 24px;max-width:860px;margin:0 auto;text-align:center}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;position:relative}
+.how-steps::before{content:'';position:absolute;top:20px;left:calc(16.6% + 12px);right:calc(16.6% + 12px);height:1px;background:repeating-linear-gradient(90deg,var(--border) 0,var(--border) 5px,transparent 5px,transparent 10px)}
+.how-step{text-align:center}
+.how-num{width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:.82rem;font-weight:700;color:var(--lime);position:relative;z-index:1;box-shadow:0 0 0 6px var(--bg)}
+.how-h{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:8px}
+.how-p{font-size:.8rem;color:var(--text2);line-height:1.65}
+.how-items{margin-top:12px;text-align:left}
+.how-item{font-size:.73rem;color:var(--text3);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.how-item:last-child{border:none}
+.how-item::before{content:'→';color:var(--lime);font-size:.75rem;flex-shrink:0}
+
+/* ── PRICING ── */
+.pricing{padding:80px 24px;max-width:1000px;margin:0 auto}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.pc{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:28px;position:relative;transition:border-color .15s}
+.pc:hover{border-color:var(--border2)}
+.pc.best{background:var(--bg1);border-color:rgba(190,242,100,.3);box-shadow:0 0 0 1px rgba(190,242,100,.1),0 16px 48px rgba(0,0,0,.4)}
+.pc-popular{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--lime);color:#0a0a0a;font-size:.65rem;font-weight:700;padding:3px 12px;border-radius:100px;white-space:nowrap}
+.pc-tier{font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.pc.best .pc-tier{color:var(--lime)}
+.pc-price{font-size:2.8rem;font-weight:700;color:var(--text);letter-spacing:-.05em;line-height:1;margin-bottom:2px}
+.pc-price sup{font-size:1rem;vertical-align:super;font-weight:500;margin-top:4px;display:inline-block;letter-spacing:0}
+.pc-per{font-size:.72rem;color:var(--text3);margin-bottom:6px}
+.pc-scope{font-size:.75rem;color:var(--lime);font-weight:500;margin-bottom:20px}
+.pc-div{height:1px;background:var(--border);margin-bottom:18px}
+.pc-list{list-style:none;margin-bottom:24px}
+.pc-list li{font-size:.78rem;color:var(--text2);padding:5px 0;display:flex;align-items:flex-start;gap:8px}
+.pc-list li .y{color:var(--green);font-weight:600;flex-shrink:0;margin-top:1px}
+.pc-list li .n{color:var(--text3);flex-shrink:0;margin-top:1px}
+.pc-list li .n~span{color:var(--text3)}
+.pc-btn{display:block;width:100%;text-align:center;text-decoration:none;padding:10px;border-radius:8px;font-size:.82rem;font-weight:600;transition:all .15s}
+.pb-outline{background:none;border:1px solid var(--border2);color:var(--text2)}.pb-outline:hover{border-color:#4a4b4e;color:var(--text)}
+.pb-lime{background:var(--lime);color:#0a0a0a;border:none}.pb-lime:hover{background:var(--lime2)}
+
+/* ── CTA ── */
+.cta{margin:0 24px 80px;max-width:1000px;margin-left:auto;margin-right:auto;background:var(--bg1);border:1px solid var(--border);border-radius:16px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(190,242,100,.07) 0%,transparent 60%);pointer-events:none}
+.cta-h{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:14px;position:relative}
+.cta-sub{font-size:.95rem;color:var(--text2);line-height:1.7;max-width:460px;margin:0 auto 32px;position:relative}
+.cta-form{display:flex;gap:8px;max-width:420px;margin:0 auto;position:relative;flex-direction:column}
+.cta-input{flex:1;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-size:.85rem;color:var(--text);font-family:var(--font);outline:none;transition:border-color .15s}
+.cta-input::placeholder{color:var(--text3)}
+.cta-input:focus{border-color:rgba(190,242,100,.4)}
+.cta-submit{background:var(--lime);color:#0a0a0a;border:none;padding:10px 20px;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:var(--font)}
+.cta-submit:hover{background:var(--lime2)}
+.cta-note{font-size:.72rem;color:var(--text3);margin-top:12px;position:relative}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:40px 24px 32px;max-width:1160px;margin:0 auto}
+.foot-inner{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-brand-text{font-size:.8rem;color:var(--text3);line-height:1.7;max-width:220px;margin-top:10px}
+.foot-h{font-size:.72rem;font-weight:600;color:var(--text2);letter-spacing:.03em;margin-bottom:12px}
+.foot-ul{list-style:none}
+.foot-ul li{margin-bottom:8px}
+.foot-ul a{font-size:.8rem;color:var(--text3);text-decoration:none;transition:color .15s;font-weight:400}
+.foot-ul a:hover{color:var(--text)}
+.foot-bar{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border)}
+.foot-copy{font-size:.75rem;color:var(--text3)}
+.foot-legal{display:flex;gap:16px}
+.foot-legal a{font-size:.75rem;color:var(--text3);text-decoration:none;transition:color .15s}
+.foot-legal a:hover{color:var(--text2)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .mock-body{grid-template-columns:1fr}
+  .mock-sidebar{display:none}
+  .mock-kpis{grid-template-columns:1fr 1fr}
+  .mock-charts{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr 1fr;gap:28px}
+  .cta{padding:40px 28px}
+}
+@media(max-width:600px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .how-steps{grid-template-columns:1fr;gap:24px}
+  .how-steps::before{display:none}
+  .feat-grid{grid-template-columns:1fr}
+  .proof-stats{flex-direction:column;max-width:200px}
+  .ps-cell{border-right:none;border-bottom:1px solid var(--border)}
+  .mock-kpis{grid-template-columns:1fr 1fr}
+  .foot-inner{grid-template-columns:1fr}
+  .foot-bar{flex-direction:column;gap:10px}
+  .cta-form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <rect width="6" height="6" rx="1.5" fill="#0a0a0a"/>
+        <rect x="8" width="6" height="6" rx="1.5" fill="#0a0a0a"/>
+        <rect y="8" width="6" height="6" rx="1.5" fill="#0a0a0a"/>
+        <rect x="8" y="8" width="6" height="6" rx="3" fill="#0a0a0a"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">SyndromeAI</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <div class="nav-right">
+    <a href="/app" class="btn-ghost">Sign in</a>
+    <button class="btn-lime" onclick="openSignup()" style="border:none;cursor:pointer">Sign up free</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero rv">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    <span class="hero-badge-tag">New</span>
+    Now live across 5 gas stations
+  </div>
+  <h1 class="hero-h1">The intelligence layer for<br><span>every gas station you run.</span></h1>
+  <p class="hero-sub">Upload a daily POS report. Get instant alerts on fuel variance, cashier risk, and revenue gaps — then wake up Monday to a full strategy deck in your inbox.</p>
+  <div class="hero-btns">
+    <a href="#cta" class="hero-btn-primary">
+      Book a demo
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="#features" class="hero-btn-secondary">See how it works</a>
+  </div>
+  <p class="hero-note">No credit card &nbsp;·&nbsp; 30-min setup &nbsp;·&nbsp; Works with Topaz, Tender &amp; Veeder Root</p>
+</section>
+
+<!-- DASHBOARD MOCKUP -->
+<div class="mockup-wrap rv">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px">
+    <div class="mockup-glow"></div>
+    <div class="mockup">
+
+      <!-- browser bar -->
+      <div class="mock-bar">
+        <div class="mock-dots">
+          <div class="mock-dot" style="background:#ff5f57"></div>
+          <div class="mock-dot" style="background:#febc2e"></div>
+          <div class="mock-dot" style="background:#28c840"></div>
+        </div>
+        <div class="mock-url"><span>syndrome&#8209;ai.com/app</span></div>
+        <div class="mock-tabs">
+          <div class="mock-tab active">Dashboard</div>
+          <div class="mock-tab">Fuel</div>
+          <div class="mock-tab">Employees</div>
+          <div class="mock-tab">Alerts</div>
+        </div>
+      </div>
+
+      <!-- app body -->
+      <div class="mock-body">
+
+        <!-- sidebar -->
+        <div class="mock-sidebar">
+          <div class="mock-sb-station">
+            <div class="mock-sb-station-name">Madco Truck Plaza</div>
+            <div class="mock-sb-station-sub"><span class="mock-sb-online"></span>Online · Updated now</div>
+          </div>
+          <div class="mock-sb-item active">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><path d="M1 8l6.5-6.5L14 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M3 6.5V13h3.5v-3h2v3H12V6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Dashboard
+          </div>
+          <div class="mock-sb-item">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><rect x="1" y="4" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 4V2.5a2.5 2.5 0 015 0V4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Shifts
+          </div>
+          <div class="mock-sb-item">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M7.5 4.5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Fuel Gallons
+          </div>
+          <div class="mock-sb-item">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><path d="M1 12l4-4 3 3 5-7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Forecast
+            <span class="mock-sb-badge">New</span>
+          </div>
+          <div class="mock-sb-divider"></div>
+          <div class="mock-sb-item">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><circle cx="5" cy="5" r="3" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M7.5 7.5l1 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Employees
+          </div>
+          <div class="mock-sb-item">
+            <svg class="icon" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v1M7.5 12v1M2 7.5h1M12 7.5h1M3.4 3.4l.7.7M10.9 10.9l.7.7M3.4 11.6l.7-.7M10.9 4.1l.7-.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="7.5" cy="7.5" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+            Alerts
+            <span class="mock-sb-alert-badge">3</span>
+          </div>
+        </div>
+
+        <!-- main -->
+        <div class="mock-main">
+          <div class="mock-page-header">
+            <div class="mock-page-title">Daily Digest — Madco Truck Plaza</div>
+            <div class="mock-page-date">Feb 15, 2026</div>
+          </div>
+
+          <!-- KPIs -->
+          <div class="mock-kpis" id="mkpis">
+            <div class="mk lime">
+              <div class="mk-label">Net Sales</div>
+              <div class="mk-val lime" id="mk1">$0</div>
+              <div class="mk-delta up">↑ +8.2% vs last week</div>
+            </div>
+            <div class="mk grn">
+              <div class="mk-label">Fuel Gallons</div>
+              <div class="mk-val grn" id="mk2">0</div>
+              <div class="mk-delta flat">→ On target</div>
+            </div>
+            <div class="mk grn">
+              <div class="mk-label">Customers</div>
+              <div class="mk-val grn" id="mk3">0</div>
+              <div class="mk-delta up">↑ +3.1% vs last week</div>
+            </div>
+            <div class="mk amb">
+              <div class="mk-label">Risk Score</div>
+              <div class="mk-val amb" id="mk4">0/100</div>
+              <div class="mk-delta flat">Medium · 1 flag</div>
+            </div>
+          </div>
+
+          <!-- Charts row -->
+          <div class="mock-charts">
+            <div class="mc-box">
+              <div class="mc-header">
+                <span class="mc-title">Sales · Feb 2026</span>
+                <span class="mc-badge">Peak $17,504</span>
+              </div>
+              <div class="mc-bars" id="mcbars">
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb peak"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb low"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb peak"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb"><div class="mcb-top"></div></div>
+                <div class="mcb peak"><div class="mcb-top"></div></div>
+              </div>
+            </div>
+            <div class="mc-box">
+              <div class="mc-header"><span class="mc-title">Payment Split</span></div>
+              <div class="mc-mop" id="mcmop">
+                <div class="mop-row"><span class="mop-label">Credit</span><div class="mop-bar-wrap"><div class="mop-fill" style="background:var(--lime);--w:51%"></div></div><span class="mop-val">51%</span></div>
+                <div class="mop-row"><span class="mop-label">Debit</span><div class="mop-bar-wrap"><div class="mop-fill" style="background:var(--blue);--w:27%"></div></div><span class="mop-val">27%</span></div>
+                <div class="mop-row"><span class="mop-label">Cash</span><div class="mop-bar-wrap"><div class="mop-fill" style="background:var(--amber);--w:16%"></div></div><span class="mop-val">16%</span></div>
+                <div class="mop-row"><span class="mop-label">EBT</span><div class="mop-bar-wrap"><div class="mop-fill" style="background:var(--text3);--w:6%"></div></div><span class="mop-val">6%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alerts -->
+          <div class="mock-alerts">
+            <div class="mock-alerts-header">
+              <span class="mock-alerts-title">Active Alerts</span>
+              <span class="mock-alerts-count">3 alerts · 2 unacknowledged</span>
+            </div>
+            <div class="mal">
+              <div class="mal-icon hi"><div class="mal-dot hi"></div></div>
+              <div class="mal-body">
+                <div class="mal-title hi">High voids detected — Register 101</div>
+                <div class="mal-desc">14 void transactions totalling $312. Threshold is 10. Review cashier activity.</div>
+              </div>
+            </div>
+            <div class="mal">
+              <div class="mal-icon md"><div class="mal-dot md"></div></div>
+              <div class="mal-body">
+                <div class="mal-title md">Fuel variance warning — Super 1.4%</div>
+                <div class="mal-desc">POS sold 842 gal vs 830 gal tank drop. Exceeds 1% threshold. Possible calibration drift.</div>
+              </div>
+            </div>
+            <div class="mal">
+              <div class="mal-icon ok"><div class="mal-dot ok"></div></div>
+              <div class="mal-body">
+                <div class="mal-title ok">Daily target met — Net sales</div>
+                <div class="mal-desc">$14,043 vs $14,000 target. +0.3% above goal.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="proof rv">
+  <div class="proof-inner">
+    <p class="proof-label">Trusted by operators running multi-station portfolios</p>
+    <div class="proof-stats">
+      <div class="ps-cell"><div class="ps-n" id="ps1">5+</div><div class="ps-l">Stations monitored</div></div>
+      <div class="ps-cell"><div class="ps-n" id="ps2">11</div><div class="ps-l">Auto-generated alert types</div></div>
+      <div class="ps-cell"><div class="ps-n">2%</div><div class="ps-l">Fuel variance threshold</div></div>
+      <div class="ps-cell"><div class="ps-n">Mon 7am</div><div class="ps-l">Weekly report delivery</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="rv">
+    <div class="section-label">Platform</div>
+    <h2 class="section-h">Everything you need to run<br>a smarter multi-station operation.</h2>
+    <p class="section-sub">Six fully integrated modules. One platform. Built specifically for how gas stations actually work — not retrofitted from generic SaaS.</p>
+  </div>
+  <div class="feat-grid rv">
+    <div class="feat">
+      <div class="feat-icon">⚙️</div>
+      <div class="feat-h">Multi-POS Support</div>
+      <div class="feat-p">Topaz PDF parsing and Tender Vision OCR running simultaneously. Upload from any POS — storage and parsing handled automatically.</div>
+      <span class="feat-tag">Topaz + Tender</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🛢️</div>
+      <div class="feat-h">Tank Monitoring</div>
+      <div class="feat-p">Veeder Root receipt OCR tracks morning and evening readings. Water detection fires instantly before contamination reaches dispensers.</div>
+      <span class="feat-tag">Veeder Root</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🔍</div>
+      <div class="feat-h">Fuel Variance Engine</div>
+      <div class="feat-p">Compares POS sales against physical tank drops in real time. Catches leaks, calibration drift, and theft before it compounds.</div>
+      <span class="feat-tag">Real-time</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">👥</div>
+      <div class="feat-h">Employee Risk Scoring</div>
+      <div class="feat-p">0–100 composite score per cashier register tracking voids, no-sales, err/corrects, and discounts to surface patterns early.</div>
+      <span class="feat-tag">AI-powered</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📊</div>
+      <div class="feat-h">Automated Reports</div>
+      <div class="feat-p">Weekly PDF + strategy deck emailed every Monday at 7am. Full performance summary and next-week action items. Zero effort required.</div>
+      <span class="feat-tag">Mon 7:00 EST</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📈</div>
+      <div class="feat-h">Intelligent Forecasting</div>
+      <div class="feat-p">Adapts to your data volume — from simple averages to linear regression with day-of-week patterns as your history grows.</div>
+      <span class="feat-tag">Adaptive ML</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="rv">
+    <div class="section-label">How it works</div>
+    <h2 class="section-h">Up and running in 30 minutes.</h2>
+    <p class="section-sub" style="margin:0 auto">Three steps from zero to full visibility across every station you operate.</p>
+  </div>
+  <div class="how-steps rv">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-h">Upload</div>
+      <p class="how-p">Drag-drop your daily POS PDF or photograph the Veeder Root receipt. 30 seconds per station.</p>
+      <div class="how-items">
+        <div class="how-item">Topaz daily summary PDF</div>
+        <div class="how-item">Tender end-of-day PDF</div>
+        <div class="how-item">Veeder Root receipt photo</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-h">Analyze</div>
+      <p class="how-p">AI parses every line item — sales, fuel, cashier behavior, tank readings. 11 alert types fire automatically.</p>
+      <div class="how-items">
+        <div class="how-item">Fuel variance vs tank drops</div>
+        <div class="how-item">Risk score per register</div>
+        <div class="how-item">Target vs actual gaps</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-h">Act</div>
+      <p class="how-p">Live dashboard for daily ops. Monday morning report for weekly strategy. Automatically generated, every cycle.</p>
+      <div class="how-items">
+        <div class="how-item">Weekly performance PDF</div>
+        <div class="how-item">Forward-looking strategy deck</div>
+        <div class="how-item">Station leaderboard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="rv">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-h">Simple pricing. Scales with your operation.</h2>
+    <p class="section-sub">Pay per station count. No per-user fees, no data caps, no contracts.</p>
+  </div>
+  <div class="price-grid rv">
+    <div class="pc">
+      <div class="pc-tier">Starter</div>
+      <div class="pc-price"><sup>$</sup>149</div>
+      <div class="pc-per">per month</div>
+      <div class="pc-scope">1–2 stations</div>
+      <div class="pc-div"></div>
+      <ul class="pc-list">
+        <li><span class="y">✓</span>Multi-POS (Topaz + Tender)</li>
+        <li><span class="y">✓</span>Daily PDF upload &amp; parsing</li>
+        <li><span class="y">✓</span>Fuel variance monitoring</li>
+        <li><span class="y">✓</span>Employee risk scoring</li>
+        <li><span class="y">✓</span>Automated Monday reports</li>
+        <li><span class="y">✓</span>Veeder Root tank monitoring</li>
+        <li><span class="n">—</span><span>Strategy deck</span></li>
+        <li><span class="n">—</span><span>Cross-station comparison</span></li>
+      </ul>
+      <button onclick="startCheckout('starter')" class="pc-btn pb-outline" style="cursor:pointer;width:100%">Get started →</button>
+    </div>
+    <div class="pc best">
+      <div class="pc-popular">Most popular</div>
+      <div class="pc-tier">Growth</div>
+      <div class="pc-price"><sup>$</sup>349</div>
+      <div class="pc-per">per month</div>
+      <div class="pc-scope">3–7 stations</div>
+      <div class="pc-div"></div>
+      <ul class="pc-list">
+        <li><span class="y">✓</span>Everything in Starter</li>
+        <li><span class="y">✓</span>Strategy deck (forward-looking)</li>
+        <li><span class="y">✓</span>Cross-station comparison</li>
+        <li><span class="y">✓</span>Station leaderboard scoring</li>
+        <li><span class="y">✓</span>Portfolio-level dashboard</li>
+        <li><span class="y">✓</span>Target gap analysis</li>
+        <li><span class="y">✓</span>Adaptive ML forecasting</li>
+        <li><span class="y">✓</span>3 manager accounts</li>
+      </ul>
+      <button onclick="startCheckout('growth')" class="pc-btn pb-lime" style="cursor:pointer;border:none;width:100%">Get started →</button>
+    </div>
+    <div class="pc">
+      <div class="pc-tier">Enterprise</div>
+      <div class="pc-price" style="font-size:2rem;letter-spacing:-.03em">Custom</div>
+      <div class="pc-per">contact us</div>
+      <div class="pc-scope">8+ stations</div>
+      <div class="pc-div"></div>
+      <ul class="pc-list">
+        <li><span class="y">✓</span>Everything in Growth</li>
+        <li><span class="y">✓</span>Unlimited stations</li>
+        <li><span class="y">✓</span>Unlimited manager accounts</li>
+        <li><span class="y">✓</span>Custom report templates</li>
+        <li><span class="y">✓</span>Multi-recipient email reports</li>
+        <li><span class="y">✓</span>API access</li>
+        <li><span class="y">✓</span>Bulk historical import</li>
+        <li><span class="y">✓</span>Dedicated support + SLA</li>
+      </ul>
+      <a href="#cta" class="pc-btn pb-outline">Contact sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta rv" id="cta" style="margin-bottom:80px">
+  <h2 class="cta-h">See your stations clearly.<br>Start with a 30-min demo.</h2>
+  <p class="cta-sub">We'll walk through your exact setup, configure your stations live, and show you what day one looks like. No commitment, no credit card.</p>
+  <div class="cta-form" id="demoForm" style="flex-direction:column;max-width:380px">
+    <input type="text" id="demoName" class="cta-input" placeholder="Your name" style="margin-bottom:0"/>
+    <input type="email" id="demoEmail" class="cta-input" placeholder="Email address"/>
+    <input type="text" id="demoStations" class="cta-input" placeholder="Number of stations you operate"/>
+    <button class="cta-submit" id="demoBtn" onclick="submitDemo()">Book demo &rarr;</button>
+  </div>
+  <div id="demoSuccess" style="display:none;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:8px;padding:16px 24px;max-width:380px;margin:0 auto">
+    <div style="font-size:.95rem;font-weight:600;color:var(--green);margin-bottom:4px">&#10003; Request sent!</div>
+    <div style="font-size:.8rem;color:var(--text2)">We'll be in touch within 24 hours.</div>
+  </div>
+  <div id="demoError" style="display:none;font-size:.78rem;color:var(--red);margin-top:8px"></div>
+  <p class="cta-note" id="demoNote">No credit card required &nbsp;·&nbsp; We respond within 24 hours</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <a href="#" class="nav-logo" style="display:inline-flex">
+        <div class="nav-logo-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect width="6" height="6" rx="1.5" fill="#0a0a0a"/><rect x="8" width="6" height="6" rx="1.5" fill="#0a0a0a"/><rect y="8" width="6" height="6" rx="1.5" fill="#0a0a0a"/><rect x="8" y="8" width="6" height="6" rx="3" fill="#0a0a0a"/></svg></div>
+        <span class="nav-logo-text">SyndromeAI</span>
+      </a>
+      <p class="foot-brand-text">Gas station intelligence platform. Multi-POS support, real-time variance detection, and automated weekly reporting.</p>
+    </div>
+    <div>
+      <div class="foot-h">Product</div>
+      <ul class="foot-ul">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/app">Sign in</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-h">Integrations</div>
+      <ul class="foot-ul">
+        <li><a href="#">Topaz POS</a></li>
+        <li><a href="#">Tender POS</a></li>
+        <li><a href="#">Veeder Root</a></li>
+        <li><a href="#">Weekly Reports</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-h">Company</div>
+      <ul class="foot-ul">
+        <li><a href="#cta">Book a demo</a></li>
+        <li><a href="#cta">Contact</a></li>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms of service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span class="foot-copy">© 2026 SyndromeAI. All rights reserved.</span>
+    <div class="foot-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#cta">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal
+var obs=new IntersectionObserver(function(en){
+  en.forEach(function(e,i){
+    if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*70);
+  });
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+
+// Counter
+function cnt(el,to,pfx,sfx){
+  pfx=pfx||'';sfx=sfx||'';
+  var t0=null;
+  (function r(ts){
+    if(!t0)t0=ts;
+    var p=Math.min((ts-t0)/1400,1),v=1-Math.pow(1-p,3);
+    el.textContent=pfx+Math.floor(v*to)+sfx;
+    if(p<1)requestAnimationFrame(r);
+  })(performance.now());
+}
+
+// KPIs
+(function(){var done=false;
+  new IntersectionObserver(function(en){
+    if(en[0].isIntersecting&&!done){done=true;
+      cnt(document.getElementById('mk1'),14043,'$');
+      setTimeout(function(){document.getElementById('mk2').textContent='8,420 gal'},0);
+      cnt(document.getElementById('mk3'),312);
+      setTimeout(function(){document.getElementById('mk4').textContent='42/100'},0);
+    }
+  },{threshold:.3}).observe(document.getElementById('mkpis'));
+})();
+
+// Bars
+(function(){var done=false;
+  new IntersectionObserver(function(en){
+    if(en[0].isIntersecting&&!done){done=true;
+      var h=[40,58,32,92,48,64,22,60,96,48,42,84];
+      document.querySelectorAll('#mcbars .mcb').forEach(function(b,i){
+        setTimeout(function(){b.style.height=h[i]+'%'},i*55);
+      });
+    }
+  },{threshold:.3}).observe(document.getElementById('mcbars'));
+})();
+
+// MOP bars
+(function(){var done=false;
+  new IntersectionObserver(function(en){
+    if(en[0].isIntersecting&&!done){done=true;
+      document.querySelectorAll('#mcmop .mop-fill').forEach(function(f){
+        setTimeout(function(){f.style.width=getComputedStyle(f).getPropertyValue('--w')||f.style.getPropertyValue('--w');},300);
+      });
+    }
+  },{threshold:.3}).observe(document.getElementById('mcmop'));
+})();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Nav scroll
+window.addEventListener('scroll',function(){
+  document.querySelector('.nav').style.borderBottomColor=
+    window.scrollY>20?'rgba(39,40,43,.8)':'var(--border)';
+});
+
+// Demo form submission
+function submitDemo(){
+  var name=document.getElementById('demoName').value.trim();
+  var email=document.getElementById('demoEmail').value.trim();
+  var stations=document.getElementById('demoStations').value.trim();
+  var btn=document.getElementById('demoBtn');
+  var errEl=document.getElementById('demoError');
+
+  errEl.style.display='none';
+
+  if(!name){errEl.textContent='Please enter your name.';errEl.style.display='block';return;}
+  if(!email||!email.includes('@')){errEl.textContent='Please enter a valid email.';errEl.style.display='block';return;}
+  if(!stations){errEl.textContent='Please enter your station count.';errEl.style.display='block';return;}
+
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  btn.style.opacity='.7';
+
+  fetch('/api/v1/demo-request',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name,email:email,station_count:stations})
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    if(data.success){
+      document.getElementById('demoForm').style.display='none';
+      document.getElementById('demoSuccess').style.display='block';
+      document.getElementById('demoNote').style.display='none';
+    } else {
+      errEl.textContent='Something went wrong. Please email us directly.';
+      errEl.style.display='block';
+      btn.textContent='Book demo →';
+      btn.disabled=false;
+      btn.style.opacity='1';
+    }
+  })
+  .catch(function(){
+    errEl.textContent='Network error. Please try again or email contact@syndrome-ai.com';
+    errEl.style.display='block';
+    btn.textContent='Book demo →';
+    btn.disabled=false;
+    btn.style.opacity='1';
+  });
+}
+// Checkout flow
+function startCheckout(plan){
+  document.getElementById('checkoutPlan').value = plan;
+  document.getElementById('checkoutPlanLabel').textContent = plan.charAt(0).toUpperCase() + plan.slice(1);
+  document.getElementById('checkoutOverlay').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeCheckout(){
+  document.getElementById('checkoutOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+function submitCheckout(){
+  var plan=document.getElementById('checkoutPlan').value;
+  var name=document.getElementById('checkoutName').value.trim();
+  var email=document.getElementById('checkoutEmail').value.trim();
+  var stations=document.getElementById('checkoutStations').value.trim();
+  var btn=document.getElementById('checkoutBtn');
+  var errEl=document.getElementById('checkoutError');
+
+  errEl.style.display='none';
+  if(!name){errEl.textContent='Please enter your name.';errEl.style.display='block';return;}
+  if(!email||!email.includes('@')){errEl.textContent='Please enter a valid email.';errEl.style.display='block';return;}
+  if(!stations){errEl.textContent='Please enter your station count.';errEl.style.display='block';return;}
+
+  btn.textContent='Redirecting to payment...';
+  btn.disabled=true;
+  btn.style.opacity='.7';
+
+  fetch('/api/v1/checkout',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({plan:plan,name:name,email:email,station_count:stations})
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    if(data.url){
+      window.location.href=data.url;
+    } else {
+      errEl.textContent='Something went wrong. Please try again.';
+      errEl.style.display='block';
+      btn.textContent='Continue to payment →';
+      btn.disabled=false;btn.style.opacity='1';
+    }
+  })
+  .catch(function(){
+    errEl.textContent='Network error. Please try again.';
+    errEl.style.display='block';
+    btn.textContent='Continue to payment →';
+    btn.disabled=false;btn.style.opacity='1';
+  });
+}
+</script>
+function openSignup(){
+  var o=document.getElementById('signupOverlay');
+  o.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeSignup(){
+  document.getElementById('signupOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSignup();});
+
+function submitSignup(){
+  var name=document.getElementById('signupName').value.trim();
+  var email=document.getElementById('signupEmail').value.trim();
+  var stations=document.getElementById('signupStations').value.trim();
+  var btn=document.getElementById('signupBtn');
+  var errEl=document.getElementById('signupError');
+
+  errEl.style.display='none';
+  if(!name){errEl.textContent='Please enter your name.';errEl.style.display='block';return;}
+  if(!email||!email.includes('@')){errEl.textContent='Please enter a valid email.';errEl.style.display='block';return;}
+  if(!stations){errEl.textContent='Please enter your station count.';errEl.style.display='block';return;}
+
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  btn.style.opacity='.7';
+
+  fetch('/api/v1/demo-request',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name,email:email,station_count:stations})
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    if(data.success){
+      document.getElementById('signupForm').style.display='none';
+      document.getElementById('signupSuccess').style.display='block';
+    } else {
+      errEl.textContent='Something went wrong. Please try again.';
+      errEl.style.display='block';
+      btn.textContent='Request access →';
+      btn.disabled=false;btn.style.opacity='1';
+    }
+  })
+  .catch(function(){
+    errEl.textContent='Network error. Please try again.';
+    errEl.style.display='block';
+    btn.textContent='Request access →';
+    btn.disabled=false;btn.style.opacity='1';
+  });
+}
+</script>
+<!-- CHECKOUT MODAL -->
+<div id="checkoutOverlay" onclick="if(event.target===this)closeCheckout()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:999;align-items:center;justify-content:center">
+  <div style="background:var(--bg1);border:1px solid var(--border2);border-radius:14px;padding:36px 32px;width:100%;max-width:400px;margin:0 20px;position:relative;box-shadow:0 32px 64px rgba(0,0,0,.6)">
+    <button onclick="closeCheckout()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);font-size:1.2rem;cursor:pointer">✕</button>
+    <div style="margin-bottom:24px">
+      <div style="font-size:.72rem;font-weight:600;color:var(--lime);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px">Secure Checkout</div>
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:-.03em;color:var(--text);margin-bottom:8px">Get started with <span id="checkoutPlanLabel">Starter</span></div>
+      <div style="font-size:.82rem;color:var(--text2);line-height:1.6">You'll be redirected to Stripe to complete your payment securely.</div>
+    </div>
+    <input type="hidden" id="checkoutPlan" value="starter"/>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <input type="text" id="checkoutName" class="cta-input" placeholder="Your name"/>
+      <input type="email" id="checkoutEmail" class="cta-input" placeholder="Email address"/>
+      <input type="text" id="checkoutStations" class="cta-input" placeholder="Number of stations"/>
+      <button onclick="submitCheckout()" id="checkoutBtn" class="cta-submit" style="margin-top:4px">Continue to payment →</button>
+      <div id="checkoutError" style="display:none;font-size:.75rem;color:var(--red);text-align:center"></div>
+    </div>
+    <p style="font-size:.7rem;color:var(--text3);text-align:center;margin-top:14px">🔒 Secured by Stripe · Cancel anytime</p>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupOverlay" onclick="if(event.target===this)closeSignup()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:999;align-items:center;justify-content:center">
+  <div style="background:var(--bg1);border:1px solid var(--border2);border-radius:14px;padding:36px 32px;width:100%;max-width:400px;margin:0 20px;position:relative;box-shadow:0 32px 64px rgba(0,0,0,.6)">
+    <button onclick="closeSignup()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);font-size:1.2rem;cursor:pointer;line-height:1">✕</button>
+    <div style="margin-bottom:24px">
+      <div style="font-size:.72rem;font-weight:600;color:var(--lime);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px">Early Access</div>
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:-.03em;color:var(--text);margin-bottom:8px">Request access to SyndromeAI</div>
+      <div style="font-size:.82rem;color:var(--text2);line-height:1.6">We're onboarding operators in batches. Submit your details and we'll be in touch within 24 hours.</div>
+    </div>
+    <div id="signupForm" style="display:flex;flex-direction:column;gap:8px">
+      <input type="text" id="signupName" class="cta-input" placeholder="Your name"/>
+      <input type="email" id="signupEmail" class="cta-input" placeholder="Email address"/>
+      <input type="text" id="signupStations" class="cta-input" placeholder="Number of stations"/>
+      <button onclick="submitSignup()" id="signupBtn" class="cta-submit" style="margin-top:4px">Request access →</button>
+      <div id="signupError" style="display:none;font-size:.75rem;color:var(--red);text-align:center"></div>
+    </div>
+    <div id="signupSuccess" style="display:none;text-align:center;padding:16px 0">
+      <div style="font-size:2rem;margin-bottom:12px">✓</div>
+      <div style="font-size:1rem;font-weight:600;color:var(--green);margin-bottom:6px">You're on the list!</div>
+      <div style="font-size:.82rem;color:var(--text2)">We'll reach out via <span style="color:var(--lime)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32515d5c4653514672414b5c56405d5f571f535b1c515d5f">[email&#160;protected]</a></span> — expect a reply withi
