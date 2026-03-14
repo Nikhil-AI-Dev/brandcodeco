@@ -33,9 +33,15 @@
     "https://github.com/brandcodeco",
     "https://linkedin.com/company/brandcodeco"
   ],
+  "founder": {
+    "@type": "Person",
+    "name": "Nikhil Ganji"
+  },
   "contactPoint": {
     "@type": "ContactPoint",
+    "telephone": "+1-947-273-8380",
     "contactType": "sales",
+    "email": "hello@brandcodeco.com",
     "availableLanguage": "English"
   },
   "offers": [
@@ -384,6 +390,64 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
   .foot-inner{grid-template-columns:1fr}
   .foot-bar{flex-direction:column;gap:10px}
 }
+/* ── FOUNDER ── */
+.founder{padding:100px 32px;border-top:1px solid var(--border)}
+.founder-inner{max-width:1260px;margin:0 auto}
+.founder-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:48px;display:flex;gap:40px;align-items:flex-start;margin-top:48px}
+.founder-avatar-lg{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--gold));display:grid;place-items:center;flex-shrink:0;font-family:var(--font-h);font-size:1.5rem;font-weight:800;color:var(--bg)}
+.founder-info{flex:1}
+.founder-name{font-family:var(--font-h);font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.founder-title{font-size:.82rem;color:var(--text2);margin-bottom:16px}
+.founder-bio{font-size:.92rem;color:var(--text2);line-height:1.8;margin-bottom:20px}
+.founder-bio strong{color:var(--text);font-weight:600}
+.founder-contact-row{display:flex;gap:16px;flex-wrap:wrap}
+.founder-contact-link{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text3);text-decoration:none;padding:6px 14px;border:1px solid var(--border2);border-radius:8px;transition:all .15s}
+.founder-contact-link:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim)}
+
+/* ── CASE STUDY ── */
+.case-study{padding:100px 32px;max-width:1000px;margin:0 auto}
+.cs-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;margin-top:48px}
+.cs-header{padding:28px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.cs-header-left{display:flex;align-items:center;gap:12px}
+.cs-avatar{width:44px;height:44px;border-radius:50%;background:var(--cyan-dim);display:grid;place-items:center;font-family:var(--font-h);font-size:.85rem;font-weight:700;color:var(--cyan);flex-shrink:0}
+.cs-client-name{font-size:.95rem;font-weight:600}
+.cs-client-role{font-size:.72rem;color:var(--text3)}
+.cs-verified{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;background:rgba(0,229,255,.08);color:var(--cyan);border:1px solid rgba(0,229,255,.15)}
+.cs-body{padding:32px}
+.cs-timeline{display:flex;flex-direction:column;gap:20px;padding-left:24px;position:relative}
+.cs-timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--cyan),var(--lime))}
+.cs-event{position:relative}
+.cs-event::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.cs-event-label{font-family:var(--font-mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--cyan);margin-bottom:4px}
+.cs-event-title{font-weight:600;margin-bottom:4px}
+.cs-event-desc{font-size:.88rem;color:var(--text2);line-height:1.7}
+.cs-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.cs-result{text-align:center;padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2)}
+.cs-result-value{font-family:var(--font-h);font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--lime));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-result-label{font-size:.72rem;color:var(--text3);margin-top:4px}
+
+/* ── TRUST BAR ── */
+.trust-bar{padding:60px 32px;border-top:1px solid var(--border)}
+.trust-inner{max-width:1260px;margin:0 auto}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:32px}
+.trust-item{display:flex;align-items:flex-start;gap:12px;padding:20px;background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);transition:border-color .2s}
+.trust-item:hover{border-color:var(--border2)}
+.trust-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;flex-shrink:0}
+.trust-item h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+.trust-item p{font-size:.78rem;color:var(--text3);line-height:1.6}
+
+/* ── NAV PHONE ── */
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text2);text-decoration:none;font-weight:500;transition:color .15s}
+.nav-phone:hover{color:var(--cyan)}
+
+@media(max-width:1024px){
+  .founder-card{flex-direction:column;gap:24px}
+  .cs-results{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .founder-card{padding:28px 24px}
+  .trust-grid{grid-template-columns:1fr}
+}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -402,7 +466,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <path d="M5 5l6 6M11 5L5 11" stroke="#04060a" stroke-width="1.2" stroke-linecap="round"/>
       </svg>
     </div>
-    <span class="nav-logo-text">brand<span>code</span></span>
+    <span class="nav-logo-text">brand<span>code</span>co</span>
   </a>
   <div class="nav-links" id="navLinks">
     <a href="#products">Products</a>
@@ -413,6 +477,10 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
+    <a href="tel:+19472738380" class="nav-phone">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (947) 273-8380
+    </a>
     <a href="#contact" class="btn-primary" style="text-decoration:none">Request Demo</a>
   </div>
   <button class="nav-burger" id="navBurger" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -471,7 +539,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Veeder Root tank monitoring</li>
       </ul>
       <div class="pc-price">$149 – $349 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">Learn more →</a>
+      <a href="https://syndrome-ai.com" class="pc-link" target="_blank" rel="noopener">View SyndromeAI →</a>
     </div>
     <div class="product-card">
       <div class="pc-mockup">
@@ -603,6 +671,40 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
   </div>
 </section>
 
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-inner">
+    <div class="rv">
+      <div class="section-label">Who's Behind This</div>
+      <h2 class="section-h">Built by an operator who<br>understands your business.</h2>
+    </div>
+    <div class="founder-card rv">
+      <div class="founder-avatar-lg">NG</div>
+      <div class="founder-info">
+        <div class="founder-name">Nikhil Ganji</div>
+        <div class="founder-title">Founder & Solo Builder</div>
+        <div class="founder-bio">
+          I built Brand Code Co after working alongside gas station operators, real estate managers, and immigration attorneys — and watching them lose time and money to tools that weren't built for how they actually work. I handle everything: <strong>architecture, AI engines, frontend, backend, and customer support</strong>. When you call, you're talking to the person who wrote the code.
+        </div>
+        <div class="founder-contact-row">
+          <a href="tel:+19472738380" class="founder-contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (947) 273-8380
+          </a>
+          <a href="mailto:hello@brandcodeco.com" class="founder-contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@brandcodeco.com
+          </a>
+          <a href="https://linkedin.com/company/brandcodeco" class="founder-contact-link" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.712-2.165 1.198v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="testimonials-inner">
@@ -642,6 +744,120 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
             <div class="test-name">Angela Martinez</div>
             <div class="test-role">Immigration Attorney · TX</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-study" id="case-study">
+  <div class="rv">
+    <div class="section-label">Case Study</div>
+    <h2 class="section-h">How a 4-station operator<br>recovered $3,200/month.</h2>
+    <p class="section-sub">From manual spreadsheets to automated intelligence — real results in the first 30 days.</p>
+  </div>
+  <div class="cs-card rv">
+    <div class="cs-header">
+      <div class="cs-header-left">
+        <div class="cs-avatar">RK</div>
+        <div>
+          <div class="cs-client-name">Raj K.</div>
+          <div class="cs-client-role">Owner, 4 gas stations &middot; Michigan</div>
+        </div>
+      </div>
+      <div class="cs-verified">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        SyndromeAI Customer
+      </div>
+    </div>
+    <div class="cs-body">
+      <div class="cs-timeline">
+        <div class="cs-event rv">
+          <div class="cs-event-label">Before</div>
+          <div class="cs-event-title">Manual spreadsheets, weekly phone calls with managers</div>
+          <div class="cs-event-desc">Raj was compiling end-of-day Topaz printouts by hand across 4 stations. His accountant spent 8+ hours per week formatting reports. Fuel discrepancies went unnoticed for months.</div>
+        </div>
+        <div class="cs-event rv">
+          <div class="cs-event-label">Week 1</div>
+          <div class="cs-event-title">Detected $1,800/month in fuel variance</div>
+          <div class="cs-event-desc">After uploading just 5 days of reports, SyndromeAI flagged a 3.1% fuel variance at Station 2 — a meter calibration issue that had been silently costing $450/week.</div>
+        </div>
+        <div class="cs-event rv">
+          <div class="cs-event-label">Week 2</div>
+          <div class="cs-event-title">Flagged a high-risk cashier (score: 78/100)</div>
+          <div class="cs-event-desc">Employee risk scoring identified a cashier with abnormal void rates and no-sale patterns. A conversation resolved the issue before it escalated.</div>
+        </div>
+        <div class="cs-event rv">
+          <div class="cs-event-label">Month 1</div>
+          <div class="cs-event-title">$3,200/month in recovered revenue</div>
+          <div class="cs-event-desc">Fuel variance correction, cashier accountability, and eliminating $600/month in manual reporting costs — over 9x the SyndromeAI subscription cost.</div>
+        </div>
+      </div>
+      <div class="cs-results rv">
+        <div class="cs-result">
+          <div class="cs-result-value">3.1% → 0.6%</div>
+          <div class="cs-result-label">Fuel variance reduced</div>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result-value">$3,200</div>
+          <div class="cs-result-label">Monthly savings</div>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result-value">8+ hrs</div>
+          <div class="cs-result-label">Reporting eliminated</div>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result-value">9.2x</div>
+          <div class="cs-result-label">ROI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="rv">
+      <div class="section-label">Trust & Security</div>
+      <h2 class="section-h">Your data is protected.</h2>
+    </div>
+    <div class="trust-grid rv-stagger rv">
+      <div class="trust-item">
+        <div class="trust-icon" style="background:var(--cyan-dim)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div>
+          <h4>End-to-End Encryption</h4>
+          <p>HTTPS/TLS in transit. Per-tenant encryption keys at rest.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" style="background:var(--gold-dim)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Tenant Isolation</h4>
+          <p>Every customer gets a fully isolated environment. Your data is never shared.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" style="background:rgba(255,51,102,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div>
+          <h4>Stripe Payments</h4>
+          <p>PCI Level 1 compliant. We never see your card details.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" style="background:rgba(184,255,0,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <h4>99.9% Uptime</h4>
+          <p>Hosted on AWS with automated monitoring and backups.</p>
         </div>
       </div>
     </div>
@@ -786,7 +1002,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <p class="section-sub">Tell us about your problem. We'll tell you how we'd solve it — no commitment, no sales pitch.</p>
   </div>
   <div class="contact-box rv">
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpzvqpgw" method="POST">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mjgaypav" method="POST">
       <input type="text" name="name" class="contact-input" placeholder="Your name" required/>
       <input type="email" name="email" class="contact-input" placeholder="Email address" required/>
       <textarea name="message" class="contact-input" placeholder="Tell us about your project or problem..." rows="4" required></textarea>
@@ -808,9 +1024,19 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <div>
       <a href="#" class="nav-logo" style="display:inline-flex;text-decoration:none">
         <div class="nav-logo-mark"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z" fill="#04060a" fill-opacity=".8"/><path d="M5 5l6 6M11 5L5 11" stroke="#04060a" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <span class="nav-logo-text">brand<span>code</span></span>
+        <span class="nav-logo-text">brand<span>code</span>co</span>
       </a>
       <p class="foot-brand-text">Custom software and AI solutions for businesses that operate in the real world. Built by operators, for operators.</p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px;margin-bottom:12px">
+        <a href="tel:+19472738380" style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text3);text-decoration:none;transition:color .15s" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text3)'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (947) 273-8380
+        </a>
+        <a href="mailto:hello@brandcodeco.com" style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text3);text-decoration:none;transition:color .15s" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text3)'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@brandcodeco.com
+        </a>
+      </div>
       <div class="foot-socials">
         <a href="https://github.com/Nikhil-AI-Dev" target="_blank" rel="noopener" aria-label="GitHub">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -1066,8 +1292,8 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
 
   fetch(form.action,{
     method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({name:name,email:email,message:message})
+    body:new FormData(form),
+    headers:{'Accept':'application/json'}
   })
   .then(function(r){
     if(r.ok){
