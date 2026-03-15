@@ -15,7 +15,11 @@
 <meta name="twitter:title" content="Brand Code Co — Custom Software & AI Solutions"/>
 <meta name="twitter:description" content="We engineer the software your business deserves. SaaS, AI integration, operations automation."/>
 <meta name="twitter:image" content="https://brandcodeco.com/og-image.png"/>
+<link rel="canonical" href="https://brandcodeco.com/"/>
+<meta name="robots" content="index, follow"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2300e5ff'/><stop offset='100%25' stop-color='%23ffb700'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-size='18' font-weight='bold' text-anchor='middle' fill='%23040610' font-family='sans-serif'>B</text></svg>"/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" as="style"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -161,6 +165,37 @@
       }
     }
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Brand Code Co",
+  "url": "https://brandcodeco.com",
+  "logo": "https://brandcodeco.com/og-image.png",
+  "image": "https://brandcodeco.com/og-image.png",
+  "description": "Custom software development and AI solutions for businesses. We build SaaS products, integrate AI, automate operations, and create data dashboards.",
+  "telephone": "+1-947-273-8380",
+  "email": "hello@brandcodeco.com",
+  "priceRange": "$$",
+  "areaServed": {"@type": "Country", "name": "United States"},
+  "serviceType": ["Custom SaaS Development", "AI & Automation Integration", "Operations Software", "Data Dashboards & Analytics"],
+  "founder": {"@type": "Person", "name": "Nikhil Ganji", "jobTitle": "Founder & Lead Engineer"},
+  "sameAs": ["https://github.com/Nikhil-AI-Dev", "https://linkedin.com/company/brandcodeco"],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3", "bestRating": "5"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Brand Code Co",
+  "url": "https://brandcodeco.com",
+  "description": "Custom software and AI solutions for businesses",
+  "publisher": {"@type": "Organization", "name": "Brand Code Co"}
 }
 </script>
 
@@ -399,6 +434,22 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 .foot-legal a{font-size:.75rem;color:var(--text3);text-decoration:none;transition:color .15s}
 .foot-legal a:hover{color:var(--text2)}
 
+/* ── BUILT FOR BAR ── */
+.built-for{padding:40px 32px 48px;border-bottom:1px solid var(--border)}
+.built-for-inner{max-width:1260px;margin:0 auto;text-align:center}
+.built-for-label{font-family:var(--font-mono);font-size:.68rem;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.built-for-grid{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap}
+.built-for-item{display:flex;align-items:center;gap:10px;padding:10px 20px;background:var(--bg1);border:1px solid var(--border);border-radius:10px;transition:border-color .2s}
+.built-for-item:hover{border-color:var(--border2)}
+.built-for-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;flex-shrink:0}
+.built-for-text{text-align:left}
+.built-for-text h4{font-size:.82rem;font-weight:600;color:var(--text);line-height:1.2}
+.built-for-text p{font-size:.68rem;color:var(--text3);line-height:1.4}
+/* ── FLOATING MOBILE CTA ── */
+.floating-cta{display:none;position:fixed;bottom:20px;left:16px;right:16px;z-index:99;opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none}
+.floating-cta.visible{opacity:1;transform:none;pointer-events:auto}
+.floating-cta a{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 24px;background:var(--cyan);color:var(--bg);font-size:.88rem;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 8px 32px rgba(0,229,255,.3),0 2px 8px rgba(0,0,0,.4);font-family:var(--font)}
+.floating-cta a:active{transform:scale(.98)}
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
@@ -429,6 +480,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
   .contact-box{padding:40px 24px}
   .foot-inner{grid-template-columns:1fr}
   .foot-bar{flex-direction:column;gap:10px}
+  .built-for-grid{flex-direction:column;gap:10px}
+  .built-for-item{width:100%;justify-content:flex-start}
+  .floating-cta{display:block}
 }
 /* ── FOUNDER ── */
 .founder{padding:100px 32px;border-top:1px solid var(--border)}
@@ -521,7 +575,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       (947) 273-8380
     </a>
-    <a href="#products" class="btn-primary" style="text-decoration:none">See How It Works</a>
+    <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none">Book a Call</a>
   </div>
   <button class="nav-burger" id="navBurger" onclick="toggleMenu()" aria-label="Toggle menu">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 11h14M4 16h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -536,11 +590,44 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <h1 class="hero-h1">Engineer The Software<br><span>Your Business Deserves</span></h1>
     <p class="hero-sub">From ground-level operations to scalable SaaS — we build AI-powered tools that solve the problems you actually live every day.</p>
     <div class="hero-btns">
-      <a href="#products" class="hero-btn-primary">
-        View Products
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" class="hero-btn-primary">
+        Book a Free Discovery Call
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </a>
-      <a href="#contact" class="hero-btn-secondary">Get In Touch</a>
+      <a href="#products" class="hero-btn-secondary">View Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR -->
+<section class="built-for rv">
+  <div class="built-for-inner">
+    <div class="built-for-label">Built for operators in</div>
+    <div class="built-for-grid">
+      <div class="built-for-item">
+        <div class="built-for-icon" style="background:var(--cyan-dim)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V8l9-6 9 6v14"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <div class="built-for-text"><h4>Gas Stations</h4><p>Fuel variance & cashier risk</p></div>
+      </div>
+      <div class="built-for-item">
+        <div class="built-for-icon" style="background:var(--gold-dim)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="built-for-text"><h4>Commercial Real Estate</h4><p>Lease tracking & portfolio analytics</p></div>
+      </div>
+      <div class="built-for-item">
+        <div class="built-for-icon" style="background:rgba(255,51,102,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="built-for-text"><h4>Immigration Law</h4><p>Case management & compliance</p></div>
+      </div>
+      <div class="built-for-item">
+        <div class="built-for-icon" style="background:rgba(184,255,0,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div class="built-for-text"><h4>Retail & Operations</h4><p>Workflow automation & reporting</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1082,7 +1169,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <p class="contact-note">No commitment required · We respond within 24 hours</p>
     <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
       <p style="font-size:.78rem;color:var(--text3);margin-bottom:10px">Prefer to skip the form?</p>
-      <a href="https://calendly.com/brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(0,229,255,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(0,229,255,.2)';this.style.background='transparent'">
+      <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(0,229,255,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(0,229,255,.2)';this.style.background='transparent'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Book a 30-min discovery call
       </a>
@@ -1179,7 +1266,8 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
   function init(){
     resize();
     particles=[];
-    var count=Math.min(Math.floor((W*H)/8000),120);
+    var isMobile=window.innerWidth<=768;
+    var count=isMobile?Math.min(Math.floor((W*H)/20000),30):Math.min(Math.floor((W*H)/8000),120);
     for(var i=0;i<count;i++){
       particles.push({
         x:Math.random()*W, y:Math.random()*H,
@@ -1227,7 +1315,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         }
       }
     }
-    requestAnimationFrame(draw);
+    if(heroVisible){animId=requestAnimationFrame(draw);}else{animId=null;}
   }
 
   container.addEventListener('mousemove',function(e){
@@ -1238,9 +1326,22 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
   container.addEventListener('mouseleave',function(){mouse.x=-1000;mouse.y=-1000;});
   window.addEventListener('resize',function(){resize()});
 
-  // Respect reduced motion
+  // Pause particles when hero is off-screen
+  var heroVisible=true;
+  var animId=null;
+  var heroObs=new IntersectionObserver(function(entries){
+    heroVisible=entries[0].isIntersecting;
+    if(heroVisible&&animId===null){animId=requestAnimationFrame(draw);}
+  },{threshold:0});
+  heroObs.observe(container);
+
+  // Respect reduced motion; defer init to after first paint
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    init(); draw();
+    if('requestIdleCallback' in window){
+      requestIdleCallback(function(){init();draw();});
+    }else{
+      setTimeout(function(){init();draw();},100);
+    }
   }
 })();
 
@@ -1385,6 +1486,27 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
     btn.style.opacity='1';
   });
 });
+</script>
+
+<!-- FLOATING MOBILE CTA -->
+<div class="floating-cta" id="floatingCta">
+  <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Book a Free Discovery Call
+  </a>
+</div>
+
+<script>
+// Floating mobile CTA — show after scrolling past hero
+(function(){
+  var fc=document.getElementById('floatingCta');
+  var hero=document.querySelector('.hero');
+  if(!fc||!hero) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ fc.classList.toggle('visible',!e.isIntersecting); });
+  },{threshold:0});
+  obs.observe(hero);
+})();
 </script>
 </body>
 </html>
