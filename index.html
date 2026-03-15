@@ -202,22 +202,22 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#04060a;
-  --bg1:#080c12;
-  --bg2:#0d1117;
-  --bg3:#161b22;
+  --bg:#070d1f;
+  --bg1:#0c1446;
+  --bg2:#0f1a52;
+  --bg3:#162060;
   --border:rgba(255,255,255,.06);
   --border2:rgba(255,255,255,.1);
-  --text:#eef2f7;
-  --text2:#8b949e;
-  --text3:#484f58;
-  --cyan:#00e5ff;
-  --gold:#ffb700;
-  --lime:#b8ff00;
-  --rose:#ff3366;
-  --cyan-dim:rgba(0,229,255,.1);
-  --cyan-glow:rgba(0,229,255,.15);
-  --gold-dim:rgba(255,183,0,.1);
+  --text:#efefef;
+  --text2:#b3cde0;
+  --text3:#2b5c92;
+  --cyan:#b3cde0;
+  --gold:#2b5c92;
+  --lime:#7aa8c7;
+  --rose:#7aa8c7;
+  --cyan-dim:rgba(179,205,224,.1);
+  --cyan-glow:rgba(179,205,224,.15);
+  --gold-dim:rgba(43,92,146,.1);
   --r:8px;
   --r2:12px;
   --r3:16px;
@@ -241,7 +241,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
 .nav-right{display:flex;align-items:center;gap:10px;margin-left:auto}
 .btn-primary{font-size:.82rem;font-weight:600;color:var(--bg);background:var(--cyan);text-decoration:none;padding:8px 20px;border-radius:8px;transition:all .2s;border:none;cursor:pointer;font-family:var(--font)}
-.btn-primary:hover{background:var(--lime);box-shadow:0 4px 20px rgba(0,229,255,.25)}
+.btn-primary:hover{background:var(--lime);box-shadow:0 4px 20px rgba(179,205,224,.25)}
 .nav-burger{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px}
 
 /* ── HERO ── */
@@ -249,13 +249,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero-canvas canvas{width:100%;height:100%}
 .hero-content{position:relative;z-index:1}
-.hero-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;margin-bottom:28px;background:var(--cyan-dim);padding:6px 16px;border-radius:100px;border:1px solid rgba(0,229,255,.15)}
+.hero-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;margin-bottom:28px;background:var(--cyan-dim);padding:6px 16px;border-radius:100px;border:1px solid rgba(179,205,224,.15)}
 .hero-h1{font-family:var(--font-h);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
 .hero-h1 span{background:linear-gradient(135deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:1.1rem;color:var(--text2);line-height:1.8;max-width:560px;margin:0 auto 40px;font-weight:400}
 .hero-btns{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
 .hero-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:var(--bg);font-size:.92rem;font-weight:600;padding:13px 28px;border-radius:10px;text-decoration:none;transition:all .2s}
-.hero-btn-primary:hover{background:var(--lime);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,255,.25)}
+.hero-btn-primary:hover{background:var(--lime);transform:translateY(-2px);box-shadow:0 8px 30px rgba(179,205,224,.25)}
 .hero-btn-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--text2);font-size:.92rem;font-weight:500;padding:13px 24px;border:1px solid var(--border2);border-radius:10px;text-decoration:none;transition:all .15s}
 .hero-btn-secondary:hover{border-color:var(--cyan);color:var(--text)}
 
@@ -273,9 +273,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .product-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .product-card:hover::before{opacity:1}
 .pc-icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;border:1px solid var(--border2)}
-.product-card:nth-child(1) .pc-icon{background:rgba(0,229,255,.06)}
-.product-card:nth-child(2) .pc-icon{background:rgba(255,183,0,.06)}
-.product-card:nth-child(3) .pc-icon{background:rgba(255,51,102,.06)}
+.product-card:nth-child(1) .pc-icon{background:rgba(179,205,224,.06)}
+.product-card:nth-child(2) .pc-icon{background:rgba(43,92,146,.06)}
+.product-card:nth-child(3) .pc-icon{background:rgba(122,168,199,.06)}
 .pc-mockup{width:100%;aspect-ratio:16/9;border-radius:var(--r2);border:1px solid var(--border2);margin-bottom:20px;overflow:hidden;position:relative;background:var(--bg2)}
 .pc-mockup-bar{height:24px;background:var(--bg3);display:flex;align-items:center;gap:5px;padding:0 10px;border-bottom:1px solid var(--border)}
 .pc-mockup-dot{width:7px;height:7px;border-radius:50%;background:var(--text3);opacity:.5}
@@ -294,7 +294,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .pc-tag{font-family:var(--font-mono);font-size:.65rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;display:inline-block;padding:3px 10px;border-radius:100px}
 .product-card:nth-child(1) .pc-tag{color:var(--cyan);background:var(--cyan-dim)}
 .product-card:nth-child(2) .pc-tag{color:var(--gold);background:var(--gold-dim)}
-.product-card:nth-child(3) .pc-tag{color:var(--rose);background:rgba(255,51,102,.1)}
+.product-card:nth-child(3) .pc-tag{color:var(--rose);background:rgba(122,168,199,.1)}
 .pc-name{font-family:var(--font-h);font-size:1.3rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em}
 .pc-desc{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:20px}
 .pc-features{list-style:none;margin-bottom:24px}
@@ -347,12 +347,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .test-avatar{width:44px;height:44px;border-radius:50%;border:2px solid var(--border2);display:grid;place-items:center;font-family:var(--font-h);font-size:.8rem;font-weight:700;flex-shrink:0;position:relative;overflow:hidden}
 .test-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .test-avatar-fallback{width:100%;height:100%;display:grid;place-items:center;font-size:.8rem;font-weight:700}
-.test-card:nth-child(1) .test-avatar{border-color:rgba(0,229,255,.3)}
-.test-card:nth-child(1) .test-avatar-fallback{background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,229,255,.05));color:var(--cyan)}
-.test-card:nth-child(2) .test-avatar{border-color:rgba(255,183,0,.3)}
-.test-card:nth-child(2) .test-avatar-fallback{background:linear-gradient(135deg,rgba(255,183,0,.15),rgba(255,183,0,.05));color:var(--gold)}
-.test-card:nth-child(3) .test-avatar{border-color:rgba(255,51,102,.3)}
-.test-card:nth-child(3) .test-avatar-fallback{background:linear-gradient(135deg,rgba(255,51,102,.15),rgba(255,51,102,.05));color:var(--rose)}
+.test-card:nth-child(1) .test-avatar{border-color:rgba(179,205,224,.3)}
+.test-card:nth-child(1) .test-avatar-fallback{background:linear-gradient(135deg,rgba(179,205,224,.15),rgba(179,205,224,.05));color:var(--cyan)}
+.test-card:nth-child(2) .test-avatar{border-color:rgba(43,92,146,.3)}
+.test-card:nth-child(2) .test-avatar-fallback{background:linear-gradient(135deg,rgba(43,92,146,.15),rgba(43,92,146,.05));color:var(--gold)}
+.test-card:nth-child(3) .test-avatar{border-color:rgba(122,168,199,.3)}
+.test-card:nth-child(3) .test-avatar-fallback{background:linear-gradient(135deg,rgba(122,168,199,.15),rgba(122,168,199,.05));color:var(--rose)}
 .test-stars{display:flex;gap:2px;margin-bottom:12px}
 .test-stars svg{color:var(--gold)}
 .test-name{font-size:.82rem;font-weight:600;color:var(--text)}
@@ -383,7 +383,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .insight-cat{font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:100px}
 .insight-card:nth-child(1) .insight-cat{color:var(--cyan);background:var(--cyan-dim)}
 .insight-card:nth-child(2) .insight-cat{color:var(--gold);background:var(--gold-dim)}
-.insight-card:nth-child(3) .insight-cat{color:var(--rose);background:rgba(255,51,102,.1)}
+.insight-card:nth-child(3) .insight-cat{color:var(--rose);background:rgba(122,168,199,.1)}
 .insight-date{font-size:.68rem;color:var(--text3)}
 .insight-title{font-family:var(--font-h);font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:8px;letter-spacing:-.01em}
 .insight-excerpt{font-size:.82rem;color:var(--text2);line-height:1.7;flex:1}
@@ -406,13 +406,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 /* ── CONTACT ── */
 .contact{padding:100px 32px;max-width:1260px;margin:0 auto}
 .contact-box{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r3);padding:64px;text-align:center;position:relative;overflow:hidden;max-width:700px;margin:48px auto 0}
-.contact-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(0,229,255,.06) 0%,transparent 60%);pointer-events:none}
+.contact-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(179,205,224,.06) 0%,transparent 60%);pointer-events:none}
 .contact-form{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto;position:relative}
 .contact-input{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:12px 16px;font-size:.88rem;color:var(--text);font-family:var(--font);outline:none;transition:border-color .15s,box-shadow .15s;resize:vertical}
 .contact-input::placeholder{color:var(--text3)}
-.contact-input:focus{border-color:rgba(0,229,255,.4);box-shadow:0 0 0 3px rgba(0,229,255,.08)}
+.contact-input:focus{border-color:rgba(179,205,224,.4);box-shadow:0 0 0 3px rgba(179,205,224,.08)}
 .contact-submit{background:var(--cyan);color:var(--bg);border:none;padding:12px 24px;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font)}
-.contact-submit:hover{background:var(--lime);box-shadow:0 4px 20px rgba(0,229,255,.2)}
+.contact-submit:hover{background:var(--lime);box-shadow:0 4px 20px rgba(179,205,224,.2)}
 .contact-note{font-size:.72rem;color:var(--text3);margin-top:12px;position:relative}
 
 /* ── FOOTER ── */
@@ -448,7 +448,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 /* ── FLOATING MOBILE CTA ── */
 .floating-cta{display:none;position:fixed;bottom:20px;left:16px;right:16px;z-index:99;opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none}
 .floating-cta.visible{opacity:1;transform:none;pointer-events:auto}
-.floating-cta a{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 24px;background:var(--cyan);color:var(--bg);font-size:.88rem;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 8px 32px rgba(0,229,255,.3),0 2px 8px rgba(0,0,0,.4);font-family:var(--font)}
+.floating-cta a{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 24px;background:var(--cyan);color:var(--bg);font-size:.88rem;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 8px 32px rgba(179,205,224,.3),0 2px 8px rgba(0,0,0,.4);font-family:var(--font)}
 .floating-cta a:active{transform:scale(.98)}
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
@@ -506,7 +506,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 .cs-avatar{width:44px;height:44px;border-radius:50%;background:var(--cyan-dim);display:grid;place-items:center;font-family:var(--font-h);font-size:.85rem;font-weight:700;color:var(--cyan);flex-shrink:0}
 .cs-client-name{font-size:.95rem;font-weight:600}
 .cs-client-role{font-size:.72rem;color:var(--text3)}
-.cs-verified{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;background:rgba(0,229,255,.08);color:var(--cyan);border:1px solid rgba(0,229,255,.15)}
+.cs-verified{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;background:rgba(179,205,224,.08);color:var(--cyan);border:1px solid rgba(179,205,224,.15)}
 .cs-body{padding:32px}
 .cs-timeline{display:flex;flex-direction:column;gap:20px;padding-left:24px;position:relative}
 .cs-timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--cyan),var(--lime))}
@@ -617,13 +617,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <div class="built-for-text"><h4>Commercial Real Estate</h4><p>Lease tracking & portfolio analytics</p></div>
       </div>
       <div class="built-for-item">
-        <div class="built-for-icon" style="background:rgba(255,51,102,.1)">
+        <div class="built-for-icon" style="background:rgba(122,168,199,.1)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <div class="built-for-text"><h4>Immigration Law</h4><p>Case management & compliance</p></div>
       </div>
       <div class="built-for-item">
-        <div class="built-for-icon" style="background:rgba(184,255,0,.1)">
+        <div class="built-for-icon" style="background:rgba(122,168,199,.1)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </div>
         <div class="built-for-text"><h4>Retail & Operations</h4><p>Workflow automation & reporting</p></div>
@@ -645,13 +645,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <div class="pc-mockup-bar"><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div></div>
         <div class="pc-mockup-content">
           <div class="pc-mockup-row" style="flex:0 0 auto;gap:8px">
-            <div class="pc-metric" style="background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.1)"><div class="pc-metric-num" style="color:var(--cyan)">-$247</div><div class="pc-metric-label">Fuel Variance</div></div>
-            <div class="pc-metric" style="background:rgba(255,183,0,.06);border:1px solid rgba(255,183,0,.1)"><div class="pc-metric-num" style="color:var(--gold)">87.3</div><div class="pc-metric-label">Risk Score</div></div>
-            <div class="pc-metric" style="background:rgba(184,255,0,.06);border:1px solid rgba(184,255,0,.1)"><div class="pc-metric-num" style="color:var(--lime)">5/5</div><div class="pc-metric-label">Stations</div></div>
+            <div class="pc-metric" style="background:rgba(179,205,224,.06);border:1px solid rgba(179,205,224,.1)"><div class="pc-metric-num" style="color:var(--cyan)">-$247</div><div class="pc-metric-label">Fuel Variance</div></div>
+            <div class="pc-metric" style="background:rgba(43,92,146,.06);border:1px solid rgba(43,92,146,.1)"><div class="pc-metric-num" style="color:var(--gold)">87.3</div><div class="pc-metric-label">Risk Score</div></div>
+            <div class="pc-metric" style="background:rgba(122,168,199,.06);border:1px solid rgba(122,168,199,.1)"><div class="pc-metric-num" style="color:var(--lime)">5/5</div><div class="pc-metric-label">Stations</div></div>
           </div>
           <div class="pc-mockup-row">
-            <div class="pc-chart" style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.08)">
-              <svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M0,50 L25,45 L50,35 L75,40 L100,20 L125,25 L150,15 L175,18 L200,8" fill="none" stroke="rgba(0,229,255,.5)" stroke-width="2"/><path d="M0,50 L25,45 L50,35 L75,40 L100,20 L125,25 L150,15 L175,18 L200,8 L200,60 L0,60Z" fill="rgba(0,229,255,.08)"/></svg>
+            <div class="pc-chart" style="background:rgba(179,205,224,.04);border:1px solid rgba(179,205,224,.08)">
+              <svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M0,50 L25,45 L50,35 L75,40 L100,20 L125,25 L150,15 L175,18 L200,8" fill="none" stroke="rgba(179,205,224,.5)" stroke-width="2"/><path d="M0,50 L25,45 L50,35 L75,40 L100,20 L125,25 L150,15 L175,18 L200,8 L200,60 L0,60Z" fill="rgba(179,205,224,.08)"/></svg>
             </div>
           </div>
         </div>
@@ -675,13 +675,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <div class="pc-mockup-bar"><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div></div>
         <div class="pc-mockup-content">
           <div class="pc-mockup-row" style="flex:0 0 auto;gap:8px">
-            <div class="pc-metric" style="background:rgba(255,183,0,.06);border:1px solid rgba(255,183,0,.1)"><div class="pc-metric-num" style="color:var(--gold)">24</div><div class="pc-metric-label">Leases</div></div>
-            <div class="pc-metric" style="background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.1)"><div class="pc-metric-num" style="color:var(--cyan)">$1.2M</div><div class="pc-metric-label">Revenue</div></div>
-            <div class="pc-metric" style="background:rgba(184,255,0,.06);border:1px solid rgba(184,255,0,.1)"><div class="pc-metric-num" style="color:var(--lime)">96%</div><div class="pc-metric-label">Occupancy</div></div>
+            <div class="pc-metric" style="background:rgba(43,92,146,.06);border:1px solid rgba(43,92,146,.1)"><div class="pc-metric-num" style="color:var(--gold)">24</div><div class="pc-metric-label">Leases</div></div>
+            <div class="pc-metric" style="background:rgba(179,205,224,.06);border:1px solid rgba(179,205,224,.1)"><div class="pc-metric-num" style="color:var(--cyan)">$1.2M</div><div class="pc-metric-label">Revenue</div></div>
+            <div class="pc-metric" style="background:rgba(122,168,199,.06);border:1px solid rgba(122,168,199,.1)"><div class="pc-metric-num" style="color:var(--lime)">96%</div><div class="pc-metric-label">Occupancy</div></div>
           </div>
           <div class="pc-mockup-row">
-            <div class="pc-chart" style="background:rgba(255,183,0,.04);border:1px solid rgba(255,183,0,.08)">
-              <svg viewBox="0 0 200 60" preserveAspectRatio="none"><rect x="10" y="35" width="20" height="25" rx="2" fill="rgba(255,183,0,.3)"/><rect x="40" y="20" width="20" height="40" rx="2" fill="rgba(255,183,0,.4)"/><rect x="70" y="28" width="20" height="32" rx="2" fill="rgba(255,183,0,.35)"/><rect x="100" y="10" width="20" height="50" rx="2" fill="rgba(255,183,0,.5)"/><rect x="130" y="22" width="20" height="38" rx="2" fill="rgba(255,183,0,.4)"/><rect x="160" y="5" width="20" height="55" rx="2" fill="rgba(255,183,0,.55)"/></svg>
+            <div class="pc-chart" style="background:rgba(43,92,146,.04);border:1px solid rgba(43,92,146,.08)">
+              <svg viewBox="0 0 200 60" preserveAspectRatio="none"><rect x="10" y="35" width="20" height="25" rx="2" fill="rgba(43,92,146,.3)"/><rect x="40" y="20" width="20" height="40" rx="2" fill="rgba(43,92,146,.4)"/><rect x="70" y="28" width="20" height="32" rx="2" fill="rgba(43,92,146,.35)"/><rect x="100" y="10" width="20" height="50" rx="2" fill="rgba(43,92,146,.5)"/><rect x="130" y="22" width="20" height="38" rx="2" fill="rgba(43,92,146,.4)"/><rect x="160" y="5" width="20" height="55" rx="2" fill="rgba(43,92,146,.55)"/></svg>
             </div>
           </div>
         </div>
@@ -703,12 +703,12 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <div class="pc-mockup-bar"><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div><div class="pc-mockup-dot"></div></div>
         <div class="pc-mockup-content">
           <div class="pc-mockup-row" style="flex:0 0 auto;gap:8px">
-            <div class="pc-metric" style="background:rgba(255,51,102,.06);border:1px solid rgba(255,51,102,.1)"><div class="pc-metric-num" style="color:var(--rose)">142</div><div class="pc-metric-label">Active Cases</div></div>
-            <div class="pc-metric" style="background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.1)"><div class="pc-metric-num" style="color:var(--cyan)">38</div><div class="pc-metric-label">Pending</div></div>
-            <div class="pc-metric" style="background:rgba(184,255,0,.06);border:1px solid rgba(184,255,0,.1)"><div class="pc-metric-num" style="color:var(--lime)">94%</div><div class="pc-metric-label">On Time</div></div>
+            <div class="pc-metric" style="background:rgba(122,168,199,.06);border:1px solid rgba(122,168,199,.1)"><div class="pc-metric-num" style="color:var(--rose)">142</div><div class="pc-metric-label">Active Cases</div></div>
+            <div class="pc-metric" style="background:rgba(179,205,224,.06);border:1px solid rgba(179,205,224,.1)"><div class="pc-metric-num" style="color:var(--cyan)">38</div><div class="pc-metric-label">Pending</div></div>
+            <div class="pc-metric" style="background:rgba(122,168,199,.06);border:1px solid rgba(122,168,199,.1)"><div class="pc-metric-num" style="color:var(--lime)">94%</div><div class="pc-metric-label">On Time</div></div>
           </div>
           <div class="pc-mockup-row">
-            <div class="pc-table" style="background:rgba(255,51,102,.03);border:1px solid rgba(255,51,102,.08)">
+            <div class="pc-table" style="background:rgba(122,168,199,.03);border:1px solid rgba(122,168,199,.08)">
               <div class="pc-table-row" style="width:90%;background:var(--rose)"></div>
               <div class="pc-table-row" style="width:75%;background:var(--cyan)"></div>
               <div class="pc-table-row" style="width:85%;background:var(--rose)"></div>
@@ -720,7 +720,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="pc-tag">Immigration Tech</div>
-      <div class="pc-name">OnboardFlow <span style="font-size:.65rem;font-weight:600;color:var(--rose);background:rgba(255,51,102,.1);padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;letter-spacing:.03em">COMING SOON</span></div>
+      <div class="pc-name">OnboardFlow <span style="font-size:.65rem;font-weight:600;color:var(--rose);background:rgba(122,168,199,.1);padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;letter-spacing:.03em">COMING SOON</span></div>
       <div class="pc-desc">Document processing and case management for immigration workflows — automated intake, tracking, and compliance in one system.</div>
       <ul class="pc-features">
         <li>Automated document intake & OCR</li>
@@ -973,7 +973,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon" style="background:rgba(255,51,102,.1)">
+        <div class="trust-icon" style="background:rgba(122,168,199,.1)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
         <div>
@@ -982,7 +982,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon" style="background:rgba(184,255,0,.1)">
+        <div class="trust-icon" style="background:rgba(122,168,199,.1)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div>
@@ -1055,9 +1055,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     </div>
     <div class="insights-grid rv-stagger rv">
       <div class="insight-card" style="cursor:default">
-        <div class="insight-img" style="background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(0,229,255,.02))">
+        <div class="insight-img" style="background:linear-gradient(135deg,rgba(179,205,224,.08),rgba(179,205,224,.02))">
           <div class="insight-img-inner">
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="5" y="8" width="70" height="44" rx="4" stroke="rgba(0,229,255,.3)" stroke-width="1.5"/><path d="M5 16h70" stroke="rgba(0,229,255,.2)" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="rgba(0,229,255,.3)"/><circle cx="18" cy="12" r="2" fill="rgba(0,229,255,.2)"/><path d="M12 26l12 10-12 10" stroke="rgba(0,229,255,.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 30h30M30 36h22M30 42h26" stroke="rgba(0,229,255,.15)" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="5" y="8" width="70" height="44" rx="4" stroke="rgba(179,205,224,.3)" stroke-width="1.5"/><path d="M5 16h70" stroke="rgba(179,205,224,.2)" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="rgba(179,205,224,.3)"/><circle cx="18" cy="12" r="2" fill="rgba(179,205,224,.2)"/><path d="M12 26l12 10-12 10" stroke="rgba(179,205,224,.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 30h30M30 36h22M30 42h26" stroke="rgba(179,205,224,.15)" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
         </div>
         <div class="insight-body">
@@ -1068,9 +1068,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="insight-card" style="cursor:default">
-        <div class="insight-img" style="background:linear-gradient(135deg,rgba(255,183,0,.08),rgba(255,183,0,.02))">
+        <div class="insight-img" style="background:linear-gradient(135deg,rgba(43,92,146,.08),rgba(43,92,146,.02))">
           <div class="insight-img-inner">
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="8" y="5" width="64" height="50" rx="4" stroke="rgba(255,183,0,.3)" stroke-width="1.5"/><rect x="14" y="18" width="10" height="28" rx="2" fill="rgba(255,183,0,.15)"/><rect x="28" y="12" width="10" height="34" rx="2" fill="rgba(255,183,0,.25)"/><rect x="42" y="22" width="10" height="24" rx="2" fill="rgba(255,183,0,.15)"/><rect x="56" y="8" width="10" height="38" rx="2" fill="rgba(255,183,0,.3)"/></svg>
+            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="8" y="5" width="64" height="50" rx="4" stroke="rgba(43,92,146,.3)" stroke-width="1.5"/><rect x="14" y="18" width="10" height="28" rx="2" fill="rgba(43,92,146,.15)"/><rect x="28" y="12" width="10" height="34" rx="2" fill="rgba(43,92,146,.25)"/><rect x="42" y="22" width="10" height="24" rx="2" fill="rgba(43,92,146,.15)"/><rect x="56" y="8" width="10" height="38" rx="2" fill="rgba(43,92,146,.3)"/></svg>
           </div>
         </div>
         <div class="insight-body">
@@ -1081,9 +1081,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="insight-card" style="cursor:default">
-        <div class="insight-img" style="background:linear-gradient(135deg,rgba(255,51,102,.08),rgba(255,51,102,.02))">
+        <div class="insight-img" style="background:linear-gradient(135deg,rgba(122,168,199,.08),rgba(122,168,199,.02))">
           <div class="insight-img-inner">
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><path d="M15 10h50a4 4 0 014 4v32a4 4 0 01-4 4H15a4 4 0 01-4-4V14a4 4 0 014-4z" stroke="rgba(255,51,102,.3)" stroke-width="1.5"/><path d="M18 20h44M18 28h32M18 36h38" stroke="rgba(255,51,102,.15)" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="38" r="8" stroke="rgba(255,51,102,.3)" stroke-width="1.5"/><path d="M55.5 38l1.8 1.8 3.2-3.6" stroke="rgba(255,51,102,.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><path d="M15 10h50a4 4 0 014 4v32a4 4 0 01-4 4H15a4 4 0 01-4-4V14a4 4 0 014-4z" stroke="rgba(122,168,199,.3)" stroke-width="1.5"/><path d="M18 20h44M18 28h32M18 36h38" stroke="rgba(122,168,199,.15)" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="38" r="8" stroke="rgba(122,168,199,.3)" stroke-width="1.5"/><path d="M55.5 38l1.8 1.8 3.2-3.6" stroke="rgba(122,168,199,.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
         <div class="insight-body">
@@ -1169,7 +1169,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <p class="contact-note">No commitment required · We respond within 24 hours</p>
     <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
       <p style="font-size:.78rem;color:var(--text3);margin-bottom:10px">Prefer to skip the form?</p>
-      <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(0,229,255,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(0,229,255,.2)';this.style.background='transparent'">
+      <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(179,205,224,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(179,205,224,.2)';this.style.background='transparent'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Book a 30-min discovery call
       </a>
@@ -1273,7 +1273,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         x:Math.random()*W, y:Math.random()*H,
         vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
         r:Math.random()*1.5+.5,
-        color:Math.random()>.6?'0,229,255':'255,183,0'
+        color:Math.random()>.6?'179,205,224':'43,92,146'
       });
     }
   }
@@ -1309,7 +1309,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
           ctx.beginPath();
           ctx.moveTo(p.x,p.y);
           ctx.lineTo(p2.x,p2.y);
-          ctx.strokeStyle='rgba(0,229,255,'+(1-d/14400)*.08+')';
+          ctx.strokeStyle='rgba(179,205,224,'+(1-d/14400)*.08+')';
           ctx.lineWidth=.5;
           ctx.stroke();
         }
