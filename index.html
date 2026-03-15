@@ -119,6 +119,46 @@
         "@type": "Answer",
         "text": "Yes. Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans covering bug fixes, feature additions, infrastructure monitoring, and priority support."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a contract or can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our SaaS products are month-to-month with no long-term contracts. Cancel anytime. Custom project engagements have milestone-based agreements with pause or exit options at each checkpoint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sign NDAs before discovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We sign mutual NDAs before any discovery call or data exchange. We take confidentiality seriously."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial or money-back guarantee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. SyndromeAI includes a 14-day free trial with no credit card required. If you're not seeing value within 30 days of a paid plan, we refund your first month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does onboarding look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For SyndromeAI, onboarding is fully remote. We connect to your POS system within 24-48 hours. You see your first dashboard and variance report within the first week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your support response time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We respond within 4 hours during business hours (Mon-Fri, 9 AM - 6 PM ET). Critical issues are escalated immediately. Maintenance plan customers get priority Slack access with a 1-hour response SLA."
+      }
     }
   ]
 }
@@ -292,7 +332,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15
 .faq-q::after{content:'+';font-family:var(--font-mono);font-size:1.1rem;color:var(--text3);flex-shrink:0;margin-left:16px;transition:color .15s}
 .faq-item.open .faq-q::after{content:'\2212';color:var(--cyan)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.faq-item.open .faq-a{max-height:200px}
+.faq-item.open .faq-a{max-height:400px}
 .faq-a-inner{padding:0 28px 20px;font-size:.85rem;color:var(--text2);line-height:1.8}
 
 /* ── INSIGHTS / BLOG ── */
@@ -481,7 +521,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       (947) 273-8380
     </a>
-    <a href="#contact" class="btn-primary" style="text-decoration:none">Request Demo</a>
+    <a href="#products" class="btn-primary" style="text-decoration:none">See How It Works</a>
   </div>
   <button class="nav-burger" id="navBurger" onclick="toggleMenu()" aria-label="Toggle menu">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 11h14M4 16h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -539,7 +579,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Veeder Root tank monitoring</li>
       </ul>
       <div class="pc-price">$149 – $349 <span>/ month</span></div>
-      <a href="https://syndrome-ai.com" class="pc-link" target="_blank" rel="noopener">View SyndromeAI →</a>
+      <div style="font-size:.72rem;color:var(--text3);margin-top:-14px;margin-bottom:16px">$149/mo for 1–2 stations · $249/mo for 3–5 · $349/mo for 6+</div>
+      <div style="font-size:.75rem;color:var(--lime);margin-bottom:16px;font-weight:600">14-day free trial · No credit card required</div>
+      <a href="https://syndrome-ai.com" class="pc-link" target="_blank" rel="noopener">Start Free Trial →</a>
     </div>
     <div class="product-card">
       <div class="pc-mockup">
@@ -558,7 +600,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="pc-tag">Commercial Real Estate</div>
-      <div class="pc-name">LeaseLens</div>
+      <div class="pc-name">LeaseLens <span style="font-size:.65rem;font-weight:600;color:var(--gold);background:var(--gold-dim);padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;letter-spacing:.03em">COMING SOON</span></div>
       <div class="pc-desc">Analytics platform for commercial real estate operators — lease tracking, tenant insights, and portfolio performance in one dashboard.</div>
       <ul class="pc-features">
         <li>Lease expiration tracking & alerts</li>
@@ -567,7 +609,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Portfolio-level analytics</li>
       </ul>
       <div class="pc-price">$79 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">Learn more →</a>
+      <a href="#contact" class="pc-link">Join Waitlist →</a>
     </div>
     <div class="product-card">
       <div class="pc-mockup">
@@ -591,7 +633,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
       <div class="pc-tag">Immigration Tech</div>
-      <div class="pc-name">OnboardFlow</div>
+      <div class="pc-name">OnboardFlow <span style="font-size:.65rem;font-weight:600;color:var(--rose);background:rgba(255,51,102,.1);padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;letter-spacing:.03em">COMING SOON</span></div>
       <div class="pc-desc">Document processing and case management for immigration workflows — automated intake, tracking, and compliance in one system.</div>
       <ul class="pc-features">
         <li>Automated document intake & OCR</li>
@@ -600,7 +642,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         <li>Client portal for self-service</li>
       </ul>
       <div class="pc-price">$49 <span>/ month</span></div>
-      <a href="#contact" class="pc-link">Learn more →</a>
+      <a href="#contact" class="pc-link">Join Waitlist →</a>
     </div>
   </div>
 </section>
@@ -611,7 +653,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     <div class="rv">
       <div class="section-label">What We Do</div>
       <h2 class="section-h">We build the tools your<br>operations run on.</h2>
-      <p class="section-sub">Not generic SaaS — software engineered around how your specific business actually works, from day one.</p>
+      <p class="section-sub">Not generic SaaS — software engineered around how your specific business actually works, from day one. Custom projects typically start at $5,000.</p>
     </div>
     <div class="svc-grid rv-stagger rv">
       <div class="svc-card">
@@ -663,10 +705,10 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <p>We're not a traditional agency. We're builder-operators who happen to write great software — and we bring that lens to every client engagement.</p>
     </div>
     <div class="about-stats rv-stagger rv">
-      <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l">Products shipped to market</div></div>
-      <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l">Industries disrupted</div></div>
-      <div class="stat"><div class="stat-n" data-count="15" data-suffix="+">0</div><div class="stat-l">Businesses powered daily</div></div>
-      <div class="stat"><div class="stat-n" data-count="100" data-suffix="%">0</div><div class="stat-l">Client retention rate</div></div>
+      <div class="stat"><div class="stat-n" data-count="3">3</div><div class="stat-l">Products shipped to market</div></div>
+      <div class="stat"><div class="stat-n" data-count="3">3</div><div class="stat-l">Industries served</div></div>
+      <div class="stat"><div class="stat-n" data-count="15" data-suffix="+">15+</div><div class="stat-l">Businesses powered daily</div></div>
+      <div class="stat"><div class="stat-n" data-count="100" data-suffix="%">100%</div><div class="stat-l">Client retention rate</div></div>
     </div>
   </div>
 </section>
@@ -682,9 +724,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <div class="founder-avatar-lg">NG</div>
       <div class="founder-info">
         <div class="founder-name">Nikhil Ganji</div>
-        <div class="founder-title">Founder & Solo Builder</div>
+        <div class="founder-title">Founder & Lead Engineer</div>
         <div class="founder-bio">
-          I built Brand Code Co after working alongside gas station operators, real estate managers, and immigration attorneys — and watching them lose time and money to tools that weren't built for how they actually work. I handle everything: <strong>architecture, AI engines, frontend, backend, and customer support</strong>. When you call, you're talking to the person who wrote the code.
+          I built Brand Code Co after working alongside gas station operators, real estate managers, and immigration attorneys — and watching them lose time and money to tools that weren't built for how they actually work. I handle everything: <strong>architecture, AI engines, frontend, backend, and customer support</strong>. When you call, you're talking to the person who wrote the code. I'm also backed by a <strong>vetted network of senior engineers and designers</strong> who step in for surge capacity, code reviews, and continuity — so your product is never dependent on one person.
         </div>
         <div class="founder-contact-row">
           <a href="tel:+19472738380" class="founder-contact-link">
@@ -747,6 +789,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
         </div>
       </div>
     </div>
+    <p class="rv" style="text-align:center;margin-top:28px;font-size:.82rem;color:var(--text3)">Want to hear it directly? <a href="#contact" style="color:var(--cyan);text-decoration:none;font-weight:600">Request a reference call</a> with any of our clients.</p>
   </div>
 </section>
 
@@ -892,6 +935,26 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <button class="faq-q" onclick="toggleFaq(this)">Do you provide ongoing support?</button>
       <div class="faq-a"><div class="faq-a-inner">Yes. Every project includes 30 days of post-launch support. After that, we offer monthly maintenance plans that cover bug fixes, feature additions, infrastructure monitoring, and priority support via Slack or email.</div></div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is there a contract or can I cancel anytime?</button>
+      <div class="faq-a"><div class="faq-a-inner">Our SaaS products (SyndromeAI, LeaseLens, OnboardFlow) are month-to-month with no long-term contracts — cancel anytime from your dashboard. Custom project engagements have milestone-based agreements, and you can pause or end the project at any milestone checkpoint. We don't lock anyone in.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you sign NDAs before discovery?</button>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. We're happy to sign a mutual NDA before any discovery call or data exchange. We understand you'll be sharing sensitive operational data — fuel volumes, employee records, financials — and we take confidentiality seriously. Just ask and we'll send one over before our first conversation.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is there a free trial or money-back guarantee?</button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. SyndromeAI includes a 14-day free trial — no credit card required. If you're not seeing value within the first 30 days of a paid plan, we'll refund your first month, no questions asked. For custom projects, the paid discovery phase serves as a low-risk entry point — you get a full technical spec you own, even if you decide not to proceed with the build.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What does onboarding look like?</button>
+      <div class="faq-a"><div class="faq-a-inner">For SyndromeAI: we handle everything remotely. You share your POS login credentials securely, and we connect directly to Topaz, Tender, or Veeder Root within 24–48 hours. No hardware installs, no on-site visits. You'll see your first dashboard and variance report within the first week. For custom projects, onboarding is built into the delivery — we do a live handoff session, training, and documentation before going live.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What's your support response time?</button>
+      <div class="faq-a"><div class="faq-a-inner">We respond to all support requests within 4 hours during business hours (Mon–Fri, 9 AM – 6 PM ET). Critical issues (dashboard down, data not syncing) are escalated immediately. Maintenance plan customers get priority Slack access with a 1-hour response SLA.</div></div>
+    </div>
   </div>
 </section>
 
@@ -904,7 +967,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <p class="section-sub">Lessons from building real software for real operators.</p>
     </div>
     <div class="insights-grid rv-stagger rv">
-      <a href="#contact" class="insight-card">
+      <div class="insight-card" style="cursor:default">
         <div class="insight-img" style="background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(0,229,255,.02))">
           <div class="insight-img-inner">
             <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="5" y="8" width="70" height="44" rx="4" stroke="rgba(0,229,255,.3)" stroke-width="1.5"/><path d="M5 16h70" stroke="rgba(0,229,255,.2)" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="rgba(0,229,255,.3)"/><circle cx="18" cy="12" r="2" fill="rgba(0,229,255,.2)"/><path d="M12 26l12 10-12 10" stroke="rgba(0,229,255,.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 30h30M30 36h22M30 42h26" stroke="rgba(0,229,255,.15)" stroke-width="2" stroke-linecap="round"/></svg>
@@ -914,10 +977,10 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
           <div class="insight-meta"><span class="insight-cat">Operations</span><span class="insight-date">Mar 2026</span></div>
           <div class="insight-title">How Gas Stations Silently Lose $800/Month on Fuel Variance</div>
           <div class="insight-excerpt">Most operators don't know they're bleeding money until the end of the quarter. Here's what we found building SyndromeAI's detection engine.</div>
-          <span class="insight-read">Read more →</span>
+          <span class="insight-read" style="color:var(--text3)">Article coming soon</span>
         </div>
-      </a>
-      <a href="#contact" class="insight-card">
+      </div>
+      <div class="insight-card" style="cursor:default">
         <div class="insight-img" style="background:linear-gradient(135deg,rgba(255,183,0,.08),rgba(255,183,0,.02))">
           <div class="insight-img-inner">
             <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="8" y="5" width="64" height="50" rx="4" stroke="rgba(255,183,0,.3)" stroke-width="1.5"/><rect x="14" y="18" width="10" height="28" rx="2" fill="rgba(255,183,0,.15)"/><rect x="28" y="12" width="10" height="34" rx="2" fill="rgba(255,183,0,.25)"/><rect x="42" y="22" width="10" height="24" rx="2" fill="rgba(255,183,0,.15)"/><rect x="56" y="8" width="10" height="38" rx="2" fill="rgba(255,183,0,.3)"/></svg>
@@ -927,10 +990,10 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
           <div class="insight-meta"><span class="insight-cat">Real Estate</span><span class="insight-date">Feb 2026</span></div>
           <div class="insight-title">Why CRE Operators Still Use Spreadsheets (And How to Replace Them)</div>
           <div class="insight-excerpt">The commercial real estate industry runs on Excel. We built LeaseLens to change that — here's what we learned about replacing entrenched workflows.</div>
-          <span class="insight-read">Read more →</span>
+          <span class="insight-read" style="color:var(--text3)">Article coming soon</span>
         </div>
-      </a>
-      <a href="#contact" class="insight-card">
+      </div>
+      <div class="insight-card" style="cursor:default">
         <div class="insight-img" style="background:linear-gradient(135deg,rgba(255,51,102,.08),rgba(255,51,102,.02))">
           <div class="insight-img-inner">
             <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><path d="M15 10h50a4 4 0 014 4v32a4 4 0 01-4 4H15a4 4 0 01-4-4V14a4 4 0 014-4z" stroke="rgba(255,51,102,.3)" stroke-width="1.5"/><path d="M18 20h44M18 28h32M18 36h38" stroke="rgba(255,51,102,.15)" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="38" r="8" stroke="rgba(255,51,102,.3)" stroke-width="1.5"/><path d="M55.5 38l1.8 1.8 3.2-3.6" stroke="rgba(255,51,102,.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -940,9 +1003,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
           <div class="insight-meta"><span class="insight-cat">AI & Automation</span><span class="insight-date">Jan 2026</span></div>
           <div class="insight-title">Document OCR in 2026: What Actually Works for Business Workflows</div>
           <div class="insight-excerpt">We tested every major OCR API while building OnboardFlow. Here's what works, what doesn't, and why the last 5% accuracy matters most.</div>
-          <span class="insight-read">Read more →</span>
+          <span class="insight-read" style="color:var(--text3)">Article coming soon</span>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1017,6 +1080,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     </div>
     <div id="contactError" style="display:none;font-size:.8rem;color:var(--rose);margin-top:8px;text-align:center"></div>
     <p class="contact-note">No commitment required · We respond within 24 hours</p>
+    <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+      <p style="font-size:.78rem;color:var(--text3);margin-bottom:10px">Prefer to skip the form?</p>
+      <a href="https://calendly.com/brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(0,229,255,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(0,229,255,.2)';this.style.background='transparent'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a 30-min discovery call
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1204,9 +1274,8 @@ var statObs=new IntersectionObserver(function(entries){
       else el.textContent=target+suffix;
     }
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      el.textContent='0';
       requestAnimationFrame(step);
-    } else {
-      el.textContent=target+suffix;
     }
     statObs.unobserve(el);
   });
@@ -1292,10 +1361,13 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   btn.disabled=true;
   btn.style.opacity='.7';
 
+  var formData=new FormData(form);
+  var obj={};
+  formData.forEach(function(v,k){obj[k]=v;});
   fetch(form.action,{
     method:'POST',
-    body:new FormData(form),
-    headers:{'Accept':'application/json'}
+    body:JSON.stringify(obj),
+    headers:{'Accept':'application/json','Content-Type':'application/json'}
   })
   .then(function(r){
     if(r.ok){
