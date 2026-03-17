@@ -5,6 +5,7 @@ Landing page for Brand Code Co — custom software & AI solutions. Single-file s
 ## Architecture
 - **Single file**: Everything lives in `index.html` — markup, styles (`<style>`), and scripts (`<script>`)
 - **No build step**: Edit index.html directly, no bundler/framework
+- **Blog posts**: Separate HTML files in `blog/` directory, same Starry Night theme
 - **Static assets**: `og-image.png`, `sitemap.xml`, `CNAME`
 - **Fonts**: Google Fonts (Syne, Inter, JetBrains Mono) loaded via CDN
 
@@ -37,10 +38,11 @@ When changing colors: update `:root` variables AND any inline `rgba()` values th
 ```bash
 # 1. SCP to EC2 (direct write needs sudo, so use /tmp)
 scp -i "C:/Users/nikhi/Downloads/leaselens-key.pem" index.html ubuntu@3.16.148.175:/tmp/index.html
+scp -i "C:/Users/nikhi/Downloads/leaselens-key.pem" -r blog ubuntu@3.16.148.175:/tmp/blog
 
 # 2. SSH in, move to web root, fix permissions
 ssh -i "C:/Users/nikhi/Downloads/leaselens-key.pem" ubuntu@3.16.148.175 \
-  "sudo cp /tmp/index.html /var/www/brandcodeco/index.html && sudo chown www-data:www-data /var/www/brandcodeco/index.html"
+  "sudo cp /tmp/index.html /var/www/brandcodeco/index.html && sudo cp -r /tmp/blog /var/www/brandcodeco/blog && sudo chown -R www-data:www-data /var/www/brandcodeco/index.html /var/www/brandcodeco/blog"
 
 # 3. Push to GitHub
 git add -A && git commit -m "description" && git push origin main
@@ -58,9 +60,18 @@ git add -A && git commit -m "description" && git push origin main
 - **LeaseLens** — coming soon — commercial real estate analytics
 - **OnboardFlow** — coming soon — immigration tech
 
+## Blog Posts
+Located in `blog/` directory. Each post is a standalone HTML file with the Starry Night theme, GA4 tracking, and JSON-LD structured data.
+- `blog/fuel-variance-gas-stations.html` — Operations / SyndromeAI
+- `blog/spreadsheets-to-software-cre.html` — Real Estate / LeaseLens
+- `blog/document-ocr-business-workflows.html` — AI & Automation / OnboardFlow
+
+Linked from the Insights section on the landing page.
+
 ## Rules
-- Always deploy to EC2 after editing index.html
+- Always deploy to EC2 after editing index.html or blog posts
 - Always push to GitHub after deploying
 - Never modify leaselens files on the EC2 server
-- Keep everything in one index.html — do not split into separate CSS/JS files
+- Keep landing page in one index.html — do not split into separate CSS/JS files
+- Blog posts go in `blog/` as separate HTML files
 - Tab title should be just "brandcodeco"

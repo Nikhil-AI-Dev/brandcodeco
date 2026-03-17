@@ -19,14 +19,19 @@ https://brandcodeco.com
 - Secondary accent: #2b5c92
 - Text: #efefef
 
+## Blog
+- [How Gas Stations Silently Lose $800/Month on Fuel Variance](https://brandcodeco.com/blog/fuel-variance-gas-stations.html)
+- [Why CRE Operators Still Use Spreadsheets (And How to Replace Them)](https://brandcodeco.com/blog/spreadsheets-to-software-cre.html)
+- [Document OCR in 2026: What Actually Works for Business Workflows](https://brandcodeco.com/blog/document-ocr-business-workflows.html)
+
 ## Products
 - SyndromeAI — syndrome-ai.com (live)
 - LeaseLens — coming soon
 - OnboardFlow — coming soon
 
 ## Deploy
-SCP index.html to EC2 at 3.16.148.175:/var/www/brandcodeco/
-then chown www-data:www-data
+SCP index.html and blog/ to EC2 at 3.16.148.175:/var/www/brandcodeco/
+then chown -R www-data:www-data
 
 ## Notes
 - Do NOT touch leaselens files on the same EC2
