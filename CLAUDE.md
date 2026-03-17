@@ -68,6 +68,20 @@ Located in `blog/` directory. Each post is a standalone HTML file with the Starr
 
 Linked from the Insights section on the landing page.
 
+## Security
+- **HSTS**: `max-age=31536000; includeSubDomains; preload`
+- **CSP**: Locked down — self, Google Analytics, Formspree, Calendly, Google Fonts only
+- **Headers**: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy
+- All resources loaded over HTTPS — no mixed content
+
+## Mobile
+- Responsive breakpoints: 1024px (tablet), 768px (phone), 380px (small phone)
+- Burger menu on mobile — hides nav links, shows burger + Book a Call button
+- Phone number hidden on mobile nav
+- Full-width hero CTA buttons on mobile
+- Floating mobile CTA bar appears on scroll
+- Touch targets min 44px
+
 ## Rules
 - Always deploy to EC2 after editing index.html or blog posts
 - Always push to GitHub after deploying
@@ -75,3 +89,4 @@ Linked from the Insights section on the landing page.
 - Keep landing page in one index.html — do not split into separate CSS/JS files
 - Blog posts go in `blog/` as separate HTML files
 - Tab title should be just "brandcodeco"
+- Nav background must use `rgba(7,13,31,.6)` to match --bg

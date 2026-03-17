@@ -33,6 +33,15 @@ https://brandcodeco.com
 SCP index.html and blog/ to EC2 at 3.16.148.175:/var/www/brandcodeco/
 then chown -R www-data:www-data
 
+## Security
+- HTTPS enforced with HSTS preload
+- Content-Security-Policy restricts all resources to trusted origins
+- Full security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
+
+## Mobile
+- Fully responsive: 1024px, 768px, 380px breakpoints
+- Burger menu, floating CTA, full-width buttons on phone
+
 ## Notes
 - Do NOT touch leaselens files on the same EC2
 - SSL via Certbot — renews June 2026
