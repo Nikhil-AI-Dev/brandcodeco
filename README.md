@@ -19,6 +19,12 @@ https://brandcodeco.com
 - Secondary accent: #2b5c92
 - Text: #efefef
 
+## Services
+- [Custom SaaS Development](https://brandcodeco.com/services/custom-software.html)
+- [AI & Automation Integration](https://brandcodeco.com/services/ai-automation.html)
+- [Operations Software](https://brandcodeco.com/services/operations-software.html)
+- [Data Dashboards & Analytics](https://brandcodeco.com/services/data-dashboards.html)
+
 ## Blog
 - [How Gas Stations Silently Lose $800/Month on Fuel Variance](https://brandcodeco.com/blog/fuel-variance-gas-stations.html)
 - [Why CRE Operators Still Use Spreadsheets (And How to Replace Them)](https://brandcodeco.com/blog/spreadsheets-to-software-cre.html)
@@ -29,8 +35,11 @@ https://brandcodeco.com
 - LeaseLens — coming soon
 - OnboardFlow — coming soon
 
+## Lead Magnet
+- AI Readiness Checklist — email capture on landing page (Formspree)
+
 ## Deploy
-SCP index.html and blog/ to EC2 at 3.16.148.175:/var/www/brandcodeco/
+SCP index.html, blog/, and services/ to EC2 at 3.16.148.175:/var/www/brandcodeco/
 then chown -R www-data:www-data
 
 ## Security

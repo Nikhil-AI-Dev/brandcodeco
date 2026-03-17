@@ -6,6 +6,7 @@ Landing page for Brand Code Co — custom software & AI solutions. Single-file s
 - **Single file**: Everything lives in `index.html` — markup, styles (`<style>`), and scripts (`<script>`)
 - **No build step**: Edit index.html directly, no bundler/framework
 - **Blog posts**: Separate HTML files in `blog/` directory, same Starry Night theme
+- **Service pages**: Separate HTML files in `services/` directory, same Starry Night theme
 - **Static assets**: `og-image.png`, `sitemap.xml`, `CNAME`
 - **Fonts**: Google Fonts (Syne, Inter, JetBrains Mono) loaded via CDN
 
@@ -39,10 +40,11 @@ When changing colors: update `:root` variables AND any inline `rgba()` values th
 # 1. SCP to EC2 (direct write needs sudo, so use /tmp)
 scp -i "C:/Users/nikhi/Downloads/leaselens-key.pem" index.html ubuntu@3.16.148.175:/tmp/index.html
 scp -i "C:/Users/nikhi/Downloads/leaselens-key.pem" -r blog ubuntu@3.16.148.175:/tmp/blog
+scp -i "C:/Users/nikhi/Downloads/leaselens-key.pem" -r services ubuntu@3.16.148.175:/tmp/services
 
 # 2. SSH in, move to web root, fix permissions
 ssh -i "C:/Users/nikhi/Downloads/leaselens-key.pem" ubuntu@3.16.148.175 \
-  "sudo cp /tmp/index.html /var/www/brandcodeco/index.html && sudo cp -r /tmp/blog /var/www/brandcodeco/blog && sudo chown -R www-data:www-data /var/www/brandcodeco/index.html /var/www/brandcodeco/blog"
+  "sudo cp /tmp/index.html /var/www/brandcodeco/index.html && sudo cp -r /tmp/blog /var/www/brandcodeco/blog && sudo cp -r /tmp/services /var/www/brandcodeco/services && sudo chown -R www-data:www-data /var/www/brandcodeco/"
 
 # 3. Push to GitHub
 git add -A && git commit -m "description" && git push origin main
@@ -68,6 +70,20 @@ Located in `blog/` directory. Each post is a standalone HTML file with the Starr
 
 Linked from the Insights section on the landing page.
 
+## Service Pages (SEO)
+Located in `services/` directory. Each page is a standalone HTML file with Starry Night theme, GA4 tracking, and JSON-LD structured data.
+- `services/custom-software.html` — Custom SaaS Development
+- `services/ai-automation.html` — AI & Automation Integration
+- `services/operations-software.html` — Operations Software
+- `services/data-dashboards.html` — Data Dashboards & Analytics
+
+Linked from the service cards on the landing page.
+
+## Lead Magnet
+- "AI Readiness Checklist" email capture between Insights and FAQ sections
+- Uses Formspree (same ID: `mjgaypav`) with `source=lead-magnet` hidden field to distinguish from contact form
+- Success message replaces form on submission
+
 ## Security
 - **HSTS**: `max-age=31536000; includeSubDomains; preload`
 - **CSP**: Locked down — self, Google Analytics, Formspree, Calendly, Google Fonts only
@@ -88,5 +104,6 @@ Linked from the Insights section on the landing page.
 - Never modify leaselens files on the EC2 server
 - Keep landing page in one index.html — do not split into separate CSS/JS files
 - Blog posts go in `blog/` as separate HTML files
+- Service pages go in `services/` as separate HTML files
 - Tab title should be just "brandcodeco"
 - Nav background must use `rgba(7,13,31,.6)` to match --bg
