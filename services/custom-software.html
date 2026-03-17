@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Custom SaaS Development — brandcodeco</title>
+<meta name="description" content="We build custom SaaS products from scratch — architecture, UI, APIs, billing, and infrastructure. Fixed-price engagements with 2-week sprint delivery."/>
+<meta property="og:title" content="Custom SaaS Development — Brand Code Co"/>
+<meta property="og:description" content="End-to-end custom SaaS builds. From discovery to deployed, revenue-generating software."/>
+<meta property="og:url" content="https://brandcodeco.com/services/custom-software.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Brand Code Co"/>
+<link rel="canonical" href="https://brandcodeco.com/services/custom-software.html"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%23b3cde0'/><stop offset='100%25' stop-color='%232b5c92'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-size='18' font-weight='bold' text-anchor='middle' fill='%23070d1f' font-family='sans-serif'>B</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Custom SaaS Development","provider":{"@type":"Organization","name":"Brand Code Co","url":"https://brandcodeco.com"},"description":"End-to-end custom SaaS product builds — from discovery to deployed, revenue-generating software.","url":"https://brandcodeco.com/services/custom-software.html"}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMGXBGFVL9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-CMGXBGFVL9');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070d1f;--bg1:#0c1446;--bg2:#0f1a52;--bg3:#162060;--text:#efefef;--text2:#b3cde0;--text3:#2b5c92;--cyan:#b3cde0;--gold:#2b5c92;--lime:#7aa8c7;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-h:'Syne',sans-serif;--font-mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+
+.svc-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,13,31,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.svc-nav-brand{font-family:var(--font-h);font-size:1.1rem;font-weight:700;color:var(--text);text-decoration:none}
+.svc-nav-back{font-size:.85rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px}
+.svc-nav-back:hover{color:var(--cyan)}
+
+.svc-hero{padding:140px 32px 60px;text-align:center;max-width:800px;margin:0 auto}
+.svc-badge{font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;background:rgba(179,205,224,.1);padding:4px 14px;border-radius:100px;border:1px solid rgba(179,205,224,.15);display:inline-block;margin-bottom:20px}
+.svc-hero h1{font-family:var(--font-h);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;background:linear-gradient(135deg,var(--text),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.svc-hero p{color:var(--text2);font-size:1.05rem;line-height:1.8;max-width:600px;margin:0 auto 32px}
+.svc-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:var(--bg);font-size:.92rem;font-weight:600;padding:13px 28px;border-radius:10px;text-decoration:none;transition:all .2s}
+.svc-cta-btn:hover{background:var(--lime);text-decoration:none;transform:translateY(-2px)}
+
+.svc-content{max-width:800px;margin:0 auto;padding:0 32px 80px}
+.svc-content h2{font-family:var(--font-h);font-size:1.6rem;font-weight:700;color:var(--text);margin:48px 0 16px}
+.svc-content h3{font-family:var(--font-h);font-size:1.15rem;font-weight:600;color:var(--text);margin:32px 0 12px}
+.svc-content p{color:var(--text2);margin-bottom:20px}
+.svc-content ul,.svc-content ol{color:var(--text2);margin:0 0 20px 24px}
+.svc-content li{margin-bottom:8px}
+.svc-content strong{color:var(--text)}
+
+.svc-grid-features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0 32px}
+.svc-feature{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:24px}
+.svc-feature h4{font-family:var(--font-h);font-size:.95rem;font-weight:600;margin-bottom:6px}
+.svc-feature p{font-size:.85rem;color:var(--text2);margin-bottom:0;line-height:1.6}
+
+.svc-process{display:flex;flex-direction:column;gap:0;margin:24px 0 32px;position:relative;padding-left:28px}
+.svc-process::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--cyan),var(--gold))}
+.svc-step{position:relative;padding:12px 0}
+.svc-step::before{content:'';position:absolute;left:-28px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.svc-step h4{font-family:var(--font-h);font-size:.95rem;font-weight:600;margin-bottom:4px}
+.svc-step p{font-size:.88rem;color:var(--text2);margin-bottom:0}
+
+.svc-bottom-cta{background:var(--bg1);border:1px solid var(--border2);border-radius:16px;padding:40px;text-align:center;margin:48px 0}
+.svc-bottom-cta h3{font-family:var(--font-h);font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.svc-bottom-cta p{color:var(--text2);margin-bottom:20px}
+
+.svc-footer{border-top:1px solid var(--border);padding:32px;text-align:center;color:var(--text3);font-size:.8rem}
+
+@media(max-width:768px){
+  .svc-hero{padding:120px 20px 40px}
+  .svc-content{padding:0 20px 60px}
+  .svc-grid-features{grid-template-columns:1fr}
+  .svc-bottom-cta{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="svc-nav">
+  <a href="/" class="svc-nav-brand">brandcodeco</a>
+  <a href="/#services" class="svc-nav-back">&larr; All Services</a>
+</nav>
+
+<div class="svc-hero">
+  <div class="svc-badge">Service</div>
+  <h1>Custom SaaS Development</h1>
+  <p>We build complete software products from scratch — architecture, UI, APIs, billing, hosting, and everything in between. You describe the problem. We ship the solution.</p>
+  <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" class="svc-cta-btn">Book a Free Discovery Call &rarr;</a>
+</div>
+
+<div class="svc-content">
+
+<h2>What We Build</h2>
+<p>We don't build generic CRUD apps. We build <strong>revenue-generating SaaS products</strong> designed around how your specific users work. Every product we've shipped — SyndromeAI for gas stations, LeaseLens for commercial real estate, OnboardFlow for immigration — started with a real operator's pain point and became a deployable product.</p>
+
+<div class="svc-grid-features">
+  <div class="svc-feature">
+    <h4>Full-Stack Architecture</h4>
+    <p>React/Next.js frontends, Node.js or Python backends, PostgreSQL databases, hosted on AWS. Production-grade from day one.</p>
+  </div>
+  <div class="svc-feature">
+    <h4>Billing & Subscriptions</h4>
+    <p>Stripe integration, usage-based pricing, per-seat billing, trial management — whatever monetization model fits your product.</p>
+  </div>
+  <div class="svc-feature">
+    <h4>Multi-Tenant by Default</h4>
+    <p>Proper data isolation, role-based access, team management, and admin dashboards built in from the start.</p>
+  </div>
+  <div class="svc-feature">
+    <h4>API-First Design</h4>
+    <p>Clean REST or GraphQL APIs that let you integrate with external systems, build mobile apps, or open your platform to partners.</p>
+  </div>
+</div>
+
+<h2>Our Process</h2>
+<p>Every engagement follows the same proven path. No surprises, no scope creep, no invoices you didn't expect.</p>
+
+<div class="svc-process">
+  <div class="svc-step">
+    <h4>Discovery Call (Free)</h4>
+    <p>30-minute conversation to understand your problem, your users, and whether custom software is the right answer.</p>
+  </div>
+  <div class="svc-step">
+    <h4>Paid Discovery Phase (2 Weeks)</h4>
+    <p>We map your workflows, interview stakeholders, and deliver a complete technical spec with wireframes. You own this document regardless of what happens next.</p>
+  </div>
+  <div class="svc-step">
+    <h4>Build Phase (6–10 Weeks)</h4>
+    <p>2-week sprints with weekly demos. You see working software every 14 days and can course-correct in real time.</p>
+  </div>
+  <div class="svc-step">
+    <h4>Launch & Handoff</h4>
+    <p>We deploy to production, run a live handoff session, and provide 30 days of post-launch support included.</p>
+  </div>
+</div>
+
+<h2>Who This Is For</h2>
+<ul>
+  <li><strong>Operators</strong> who've outgrown spreadsheets and off-the-shelf tools but can't justify enterprise software pricing</li>
+  <li><strong>Founders</strong> with a validated idea who need a technical partner to build the first version</li>
+  <li><strong>Companies</strong> with manual workflows that cost more in labor than the software to automate them</li>
+  <li><strong>Teams</strong> who need a specific tool that doesn't exist yet — and want to own it</li>
+</ul>
+
+<h2>What You Get</h2>
+<ul>
+  <li>Complete source code — you own everything we build</li>
+  <li>Production deployment on AWS with monitoring and alerts</li>
+  <li>Technical documentation and admin guides</li>
+  <li>30 days post-launch support included</li>
+  <li>Optional monthly maintenance plans for ongoing updates</li>
+</ul>
+
+<div class="svc-bottom-cta">
+  <h3>Ready to build?</h3>
+  <p>Book a free 30-minute discovery call. No pitch deck, no sales team — just a conversation with the engineer who'll build your product.</p>
+  <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" class="svc-cta-btn">Book a Discovery Call &rarr;</a>
+</div>
+
+</div>
+
+<footer class="svc-footer">&copy; 2026 Brand Code Co. All rights reserved.</footer>
+</body>
+</html>
