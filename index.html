@@ -645,9 +645,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
 <section class="hero">
   <div class="hero-canvas" id="heroCanvas"></div>
   <div class="hero-content rv">
-    <div class="hero-label">Custom Software & AI Solutions</div>
+    <div class="hero-label">Future-Ready Custom Software With AI Solutions</div>
     <h1 class="hero-h1">Engineer The Software<br><span>Your Business Deserves</span></h1>
-    <p class="hero-sub">From ground-level operations to scalable SaaS — we build AI-powered tools that solve the problems you actually live every day.</p>
+    <p class="hero-sub">From ground-level operations to scalable SaaS, we build AI-powered tools that solve the problems you actually live every day.</p>
     <div class="hero-btns">
       <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" class="hero-btn-primary">
         Book a Free Discovery Call
@@ -1066,6 +1066,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
       <button type="submit" id="leadBtn">Send It Free &rarr;</button>
     </form>
     <div class="lead-magnet-success" id="leadSuccess">Check your inbox — the checklist is on its way.</div>
+    <div id="leadError" style="display:none;margin-top:12px;font-size:.82rem;color:var(--rose);padding:10px 16px;background:rgba(122,168,199,.06);border:1px solid rgba(122,168,199,.2);border-radius:var(--r2)">Something went wrong. Please try again or email us at <a href="mailto:hello@brandcodeco.com" style="color:var(--cyan);text-decoration:none">hello@brandcodeco.com</a></div>
     <div class="lead-magnet-note">No spam, ever. Unsubscribe anytime.</div>
     <div class="lead-magnet-checklist">
       <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Takes 2 minutes</span>
@@ -1248,7 +1249,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     </div>
     <div id="contactError" style="display:none;font-size:.8rem;color:var(--rose);margin-top:8px;text-align:center"></div>
     <p class="contact-note">No commitment required · We respond within 24 hours</p>
-    <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+    <div id="contactSkipBlock" style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
       <p style="font-size:.78rem;color:var(--text3);margin-bottom:10px">Prefer to skip the form?</p>
       <a href="https://calendly.com/nikhil-brandcodeco/discovery" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:8px 16px;border:1px solid rgba(179,205,224,.2);border-radius:8px;transition:all .15s" onmouseover="this.style.borderColor='var(--cyan)';this.style.background='var(--cyan-dim)'" onmouseout="this.style.borderColor='rgba(179,205,224,.2)';this.style.background='transparent'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -1399,13 +1400,21 @@ footer{border-top:1px solid var(--border);padding:48px 32px 32px;max-width:1260p
     if(heroVisible){animId=requestAnimationFrame(draw);}else{animId=null;}
   }
 
-  container.addEventListener('mousemove',function(e){
+  var heroSection=container.closest('.hero')||document.querySelector('.hero');
+  heroSection.addEventListener('mousemove',function(e){
     var rect=container.getBoundingClientRect();
     mouse.x=e.clientX-rect.left;
     mouse.y=e.clientY-rect.top;
   });
-  container.addEventListener('mouseleave',function(){mouse.x=-1000;mouse.y=-1000;});
-  window.addEventListener('resize',function(){resize()});
+  heroSection.addEventListener('mouseleave',function(){mouse.x=-1000;mouse.y=-1000;});
+  var resizeTimer;
+  window.addEventListener('resize',function(){
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(function(){
+      init();
+      if(heroVisible&&animId===null){animId=requestAnimationFrame(draw);}
+    },120);
+  });
 
   // Pause particles when hero is off-screen
   var heroVisible=true;
@@ -1472,9 +1481,11 @@ window.addEventListener('scroll',function(){
 // ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
-    var t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    var href=a.getAttribute('href');
     document.getElementById('navLinks').classList.remove('open');
+    if(!href||href==='#'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});return;}
+    var t=document.querySelector(href);
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
   });
 });
 
@@ -1482,6 +1493,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 function toggleMenu(){
   document.getElementById('navLinks').classList.toggle('open');
 }
+document.addEventListener('click',function(e){
+  var nav=document.getElementById('nav');
+  var links=document.getElementById('navLinks');
+  if(links.classList.contains('open')&&!nav.contains(e.target)){
+    links.classList.remove('open');
+  }
+});
 
 // ── FAQ TOGGLE ──
 function toggleFaq(btn){
@@ -1555,6 +1573,8 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
     if(r.ok){
       form.style.display='none';
       document.getElementById('contactSuccess').style.display='block';
+      document.querySelector('.contact-note').style.display='none';
+      document.getElementById('contactSkipBlock').style.display='none';
     } else {
       throw new Error('Failed');
     }
@@ -1594,6 +1614,7 @@ document.getElementById('leadForm').addEventListener('submit',function(e){
   .catch(function(){
     btn.textContent='Send It Free →';
     btn.disabled=false;
+    document.getElementById('leadError').style.display='block';
   });
 });
 </script>
